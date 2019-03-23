@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.JFrame;
+
 public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
@@ -9,14 +11,71 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_dinheiro1 = new javax.swing.JLabel();
+        lbl_dinheiro2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUIZ - Fauna e Flora");
-        setPreferredSize(new java.awt.Dimension(500, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(500, 500));
 
+        jPanel1.setBackground(new java.awt.Color(245, 171, 53));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Quiz - Flora e Fauna");
+
+        lbl_dinheiro1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_dinheiro1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dinheiro1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dinheiro1.setText("X");
+        lbl_dinheiro1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_dinheiro1MouseClicked(evt);
+            }
+        });
+
+        lbl_dinheiro2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_dinheiro2.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dinheiro2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_dinheiro2.setText("-");
+        lbl_dinheiro2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_dinheiro2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_dinheiro2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_dinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lbl_dinheiro1)
+                    .addComponent(lbl_dinheiro2))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(30, 130, 76));
+
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setText("Jogar!");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -24,21 +83,36 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(jButton1)
-                .addGap(218, 218, 218))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(226, 226, 226)
-                .addComponent(jButton1)
-                .addGap(251, 251, 251))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -50,6 +124,14 @@ public class Menu extends javax.swing.JFrame {
         this.setVisible(false);
         p.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void lbl_dinheiro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_dinheiro1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_lbl_dinheiro1MouseClicked
+
+    private void lbl_dinheiro2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_dinheiro2MouseClicked
+        this.setState(JFrame.ICONIFIED);
+    }//GEN-LAST:event_lbl_dinheiro2MouseClicked
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -81,5 +163,10 @@ public class Menu extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbl_dinheiro1;
+    private javax.swing.JLabel lbl_dinheiro2;
     // End of variables declaration//GEN-END:variables
 }

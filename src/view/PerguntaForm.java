@@ -27,11 +27,109 @@ public class PerguntaForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        lbl_countPergunta = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lbl_dinheiro = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbl_dinheiro1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lbl_pergunta = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
+        jRadioButton6 = new javax.swing.JRadioButton();
+        jRadioButton7 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 500));
         setResizable(false);
+
+        jPanel1.setBackground(new java.awt.Color(245, 171, 53));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Pergunta:");
+
+        lbl_countPergunta.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_countPergunta.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_countPergunta.setText("0");
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("/50");
+
+        lbl_dinheiro.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_dinheiro.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dinheiro.setText("1000");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("R$");
+
+        lbl_dinheiro1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbl_dinheiro1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_dinheiro1.setText(",00");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_countPergunta)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(0, 0, 0)
+                .addComponent(lbl_dinheiro)
+                .addGap(0, 0, 0)
+                .addComponent(lbl_dinheiro1)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lbl_countPergunta)
+                    .addComponent(jLabel3)
+                    .addComponent(lbl_dinheiro)
+                    .addComponent(jLabel5)
+                    .addComponent(lbl_dinheiro1))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(30, 130, 76));
+
+        lbl_pergunta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        lbl_pergunta.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_pergunta.setText("Pergunta:");
+        lbl_pergunta.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jRadioButton1.setBackground(new java.awt.Color(30, 130, 76));
+        jRadioButton1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton1.setText("Alternativa errada");
+
+        jRadioButton5.setBackground(new java.awt.Color(30, 130, 76));
+        jRadioButton5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton5.setText("Alternativa errada");
+
+        jRadioButton6.setBackground(new java.awt.Color(30, 130, 76));
+        jRadioButton6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jRadioButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton6.setText("Alternativa errada");
+
+        jRadioButton7.setBackground(new java.awt.Color(30, 130, 76));
+        jRadioButton7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        jRadioButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jRadioButton7.setText("Alternativa errada");
 
         jButton1.setText("Responder");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -40,21 +138,55 @@ public class PerguntaForm extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_pergunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jRadioButton5)
+                            .addComponent(jRadioButton7)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton6)
+                            .addComponent(jButton1))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_pergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton5)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton6)
+                .addGap(18, 18, 18)
+                .addComponent(jRadioButton7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(jButton1)
-                .addGap(208, 208, 208))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(229, 229, 229)
-                .addComponent(jButton1)
-                .addGap(248, 248, 248))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -104,5 +236,18 @@ public class PerguntaForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton jRadioButton7;
+    private javax.swing.JLabel lbl_countPergunta;
+    private javax.swing.JLabel lbl_dinheiro;
+    private javax.swing.JLabel lbl_dinheiro1;
+    private javax.swing.JLabel lbl_pergunta;
     // End of variables declaration//GEN-END:variables
 }
