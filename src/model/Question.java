@@ -39,32 +39,16 @@ public class Question {
         return question;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
     public String[] getAlternatives() {
         return alternatives;
-    }
-
-    public void setAlternatives(String[] alternatives) {
-        this.alternatives = alternatives;
     }
 
     public Alternative getRightAlternative() {
         return rightAlternative;
     }
-
-    public void setRightAlternative(Alternative rightAlternative) {
-        this.rightAlternative = rightAlternative;
-    }
     
     public int getPoints() {
         return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
     
 }
