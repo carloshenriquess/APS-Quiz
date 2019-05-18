@@ -35,17 +35,17 @@ public class PerguntaForm extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         lbl_dinheiro1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lbl_pergunta = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
         jRadioButton7 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        textArea1 = new java.awt.TextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(245, 171, 53));
+        jPanel1.setBackground(new java.awt.Color(105, 105, 105));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,7 +82,7 @@ public class PerguntaForm extends javax.swing.JFrame {
                 .addComponent(lbl_countPergunta)
                 .addGap(0, 0, 0)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(0, 0, 0)
                 .addComponent(lbl_dinheiro)
@@ -93,7 +93,7 @@ public class PerguntaForm extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(lbl_countPergunta)
@@ -101,32 +101,27 @@ public class PerguntaForm extends javax.swing.JFrame {
                     .addComponent(lbl_dinheiro)
                     .addComponent(jLabel5)
                     .addComponent(lbl_dinheiro1))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(30, 130, 76));
+        jPanel2.setBackground(new java.awt.Color(112, 128, 144));
 
-        lbl_pergunta.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lbl_pergunta.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_pergunta.setText("Pergunta:");
-        lbl_pergunta.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        jRadioButton1.setBackground(new java.awt.Color(30, 130, 76));
+        jRadioButton1.setBackground(new java.awt.Color(112, 128, 144));
         jRadioButton1.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("Alternativa errada");
 
-        jRadioButton5.setBackground(new java.awt.Color(30, 130, 76));
+        jRadioButton5.setBackground(new java.awt.Color(112, 128, 144));
         jRadioButton5.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jRadioButton5.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton5.setText("Alternativa errada");
 
-        jRadioButton6.setBackground(new java.awt.Color(30, 130, 76));
+        jRadioButton6.setBackground(new java.awt.Color(112, 128, 144));
         jRadioButton6.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jRadioButton6.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton6.setText("Alternativa errada");
 
-        jRadioButton7.setBackground(new java.awt.Color(30, 130, 76));
+        jRadioButton7.setBackground(new java.awt.Color(112, 128, 144));
         jRadioButton7.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         jRadioButton7.setForeground(new java.awt.Color(255, 255, 255));
         jRadioButton7.setText("Alternativa errada");
@@ -138,6 +133,10 @@ public class PerguntaForm extends javax.swing.JFrame {
             }
         });
 
+        textArea1.setColumns(10);
+        textArea1.setMaximumSize(new java.awt.Dimension(10, 10));
+        textArea1.setRows(10);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -145,7 +144,7 @@ public class PerguntaForm extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_pergunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(textArea1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButton5)
@@ -153,15 +152,15 @@ public class PerguntaForm extends javax.swing.JFrame {
                             .addComponent(jRadioButton1)
                             .addComponent(jRadioButton6)
                             .addComponent(jButton1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 357, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbl_pergunta, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jRadioButton5)
@@ -248,6 +247,6 @@ public class PerguntaForm extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_countPergunta;
     private javax.swing.JLabel lbl_dinheiro;
     private javax.swing.JLabel lbl_dinheiro1;
-    private javax.swing.JLabel lbl_pergunta;
+    private java.awt.TextArea textArea1;
     // End of variables declaration//GEN-END:variables
 }
