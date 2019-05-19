@@ -1,7 +1,9 @@
 package view;
 
+import javax.swing.JFrame;
 import model.Question;
 import storage.Storage;
+import util.Util;
 
 public class QuestionForm extends javax.swing.JFrame {
 
@@ -24,7 +26,7 @@ public class QuestionForm extends javax.swing.JFrame {
         tips = Storage.TIPS;
         refreshForm();
     }
-    
+
     private void refreshForm() {
         if (pulos <= 0) {
             btnPular.setEnabled(false);
@@ -88,9 +90,12 @@ public class QuestionForm extends javax.swing.JFrame {
             refreshForm();
         } else {
             WinForm winForm = new WinForm(points, pulos, tips);
-            setVisible(false);
-            winForm.setVisible(true);
+            toFrame(winForm);
         }
+    }
+    
+    private void toFrame(JFrame jFrame) {
+        Util.toFrame(this, jFrame);
     }
 
     // Events
@@ -101,8 +106,7 @@ public class QuestionForm extends javax.swing.JFrame {
             toNextQuestion();
         } else {
             DefeatForm defeatForm = new DefeatForm((int) (points / 2), pulos, tips);
-            setVisible(false);
-            defeatForm.setVisible(true);
+            toFrame(defeatForm);
         }
     }
     private void onClickTip() {
@@ -121,8 +125,7 @@ public class QuestionForm extends javax.swing.JFrame {
     }
     private void onStop() {
         StopForm stopForm = new StopForm((int) (points / 2), pulos, tips);
-        setVisible(false);
-        stopForm.setVisible(true);
+        toFrame(stopForm);
     }
     private void onSelectRadio(javax.swing.JRadioButton radio) {
         resetRadios();

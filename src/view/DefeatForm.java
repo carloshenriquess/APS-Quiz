@@ -1,5 +1,7 @@
 package view;
 
+import util.Util;
+
 public class DefeatForm extends javax.swing.JFrame {
 
     /**
@@ -161,8 +163,7 @@ public class DefeatForm extends javax.swing.JFrame {
 
     private void btnPlayAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayAgainActionPerformed
         QuestionForm questionForm = new QuestionForm();
-        setVisible(false);
-        questionForm.setVisible(true);
+        Util.toFrame(this, questionForm);
     }//GEN-LAST:event_btnPlayAgainActionPerformed
 
 
