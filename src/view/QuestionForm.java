@@ -1,6 +1,5 @@
 package view;
 
-import javax.swing.JDialog;
 import model.Question;
 import storage.Storage;
 
@@ -9,6 +8,10 @@ public class QuestionForm extends javax.swing.JFrame {
     private byte currentQuestion;
     private Question question;
     private int points;
+    private int pulos;
+    private int tips;
+    
+    private boolean tipUsed = false;
 
     public QuestionForm() {
         initComponents();
@@ -17,22 +20,19 @@ public class QuestionForm extends javax.swing.JFrame {
         tipDialog.setLocationRelativeTo(null);
         
         question = Storage.QUESTIONS[currentQuestion];
+        pulos = Storage.PULOS;
+        tips = Storage.TIPS;
         refreshForm();
-    }
-
-    private void toNextQuestion() {
-        currentQuestion++;
-        if (Storage.QUESTIONS.length > currentQuestion) {
-            question = Storage.QUESTIONS[currentQuestion];
-            refreshForm();
-        } else {
-            WinForm winForm = new WinForm(points, 3, 4);
-            setVisible(false);
-            winForm.setVisible(true);
-        }
     }
     
     private void refreshForm() {
+        if (pulos <= 0) {
+            btnPular.setEnabled(false);
+        }
+        if (tips <= 0) {
+            btnTip.setEnabled(false);
+        }
+
         btnReply.setEnabled(false);
         txtQuestion.setText(question.getQuestion());
         resetRadios();
@@ -41,8 +41,12 @@ public class QuestionForm extends javax.swing.JFrame {
         rdAlt3.setText(question.getAlternatives()[2]);
         rdAlt4.setText(question.getAlternatives()[3]);
         lbCurrentQuestion.setText(String.valueOf(currentQuestion + 1));
-        lbPoints.setText(String.valueOf(points));
         lbTip.setText(question.getTip());
+        lbPoints.setText(String.valueOf(points));
+        
+        lbQuestionPoints.setText(String.valueOf(question.getPoints()));
+        lbPulos.setText(String.valueOf(pulos));
+        lbTips.setText(String.valueOf(tips));
    }
     
     private void resetRadios() {
@@ -52,15 +56,6 @@ public class QuestionForm extends javax.swing.JFrame {
         rdAlt4.setSelected(false);
     }
 
-    // Events
-    private void onSelectRadio(javax.swing.JRadioButton radio) {
-        resetRadios();
-        radio.setSelected(true);
-        if (!btnReply.isEnabled()) {
-            btnReply.setEnabled(true);
-        }
-    }
-    
     private Question.Alternative getSelectedAlternative(){
         Question.Alternative alternative;
         if (rdAlt1.isSelected()) {
@@ -75,6 +70,52 @@ public class QuestionForm extends javax.swing.JFrame {
         return alternative;
     }
     
+    private void toNextQuestion() {
+        currentQuestion++;
+        tipUsed = false;
+        if (Storage.QUESTIONS.length > currentQuestion) {
+            question = Storage.QUESTIONS[currentQuestion];
+            refreshForm();
+        } else {
+            WinForm winForm = new WinForm(points, pulos, tips);
+            setVisible(false);
+            winForm.setVisible(true);
+        }
+    }
+
+    // Events
+    private void onReply() {
+        Question.Alternative alternative = getSelectedAlternative();
+        if (question.reply(alternative))  {
+            points += question.getPoints();
+            toNextQuestion();
+        } else {
+            DefeatForm defeatForm = new DefeatForm(points, pulos, tips);
+            setVisible(false);
+            defeatForm.setVisible(true);
+        }
+    }
+    private void onClickTip() {
+        if (!tipUsed) {
+            tipUsed = true;
+            lbTips.setText(String.valueOf(--tips));
+            if (tips <= 0) {
+                btnTip.setEnabled(false);
+            }
+        }
+        tipDialog.setVisible(true);
+    }
+    private void onClickPular() {
+        pulos--;
+        toNextQuestion();
+    }
+    private void onSelectRadio(javax.swing.JRadioButton radio) {
+        resetRadios();
+        radio.setSelected(true);
+        if (!btnReply.isEnabled()) {
+            btnReply.setEnabled(true);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -438,15 +479,7 @@ public class QuestionForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplyActionPerformed
-        Question.Alternative alternative = getSelectedAlternative();
-        if (question.reply(alternative))  {
-            this.points += question.getPoints();
-            this.toNextQuestion();
-        } else {
-            DefeatForm defeatForm = new DefeatForm(points, 5, 6);
-            setVisible(false);
-            defeatForm.setVisible(true);
-        }
+        onReply();
     }//GEN-LAST:event_btnReplyActionPerformed
 
     private void rdAlt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdAlt1ActionPerformed
@@ -470,11 +503,11 @@ public class QuestionForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStopActionPerformed
 
     private void btnTipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipActionPerformed
-        tipDialog.setVisible(true);
+        onClickTip();
     }//GEN-LAST:event_btnTipActionPerformed
 
     private void btnPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPularActionPerformed
-        // TODO add your handling code here:
+        onClickPular();
     }//GEN-LAST:event_btnPularActionPerformed
 
     /**

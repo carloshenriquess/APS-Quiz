@@ -3,6 +3,8 @@ package storage;
 import model.Question;
 
 public class Storage {
+    public static final int PULOS = 1;
+    public static final int TIPS = 2;
     static final String[][] ALTERNATIVES = {
         {
             "Alternativa certa certa certa certa certa certa certa certa certa certa certa certa certa",
