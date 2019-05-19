@@ -47,6 +47,8 @@ public class QuestionForm extends javax.swing.JFrame {
         lbQuestionPoints.setText(String.valueOf(question.getPoints()));
         lbPulos.setText(String.valueOf(pulos));
         lbTips.setText(String.valueOf(tips));
+        lbDefeatPoints.setText(String.valueOf(getDefeatPoints()));
+        lbStopPoints.setText(String.valueOf(points));
    }
     
     private void resetRadios() {
@@ -68,6 +70,14 @@ public class QuestionForm extends javax.swing.JFrame {
             alternative = Question.Alternative.D;
         }
         return alternative;
+    }
+    
+    private int getDefeatPoints() {
+        if ((int) (points / 2) < 5000) {
+            return (int) (points / 2);
+        } else {
+            return 5000;
+        }
     }
     
     private void toNextQuestion() {
@@ -110,7 +120,7 @@ public class QuestionForm extends javax.swing.JFrame {
         toNextQuestion();
     }
     private void onStop() {
-        StopForm stopForm = new StopForm(points, pulos, tips);
+        StopForm stopForm = new StopForm((int) (points / 2), pulos, tips);
         setVisible(false);
         stopForm.setVisible(true);
     }
@@ -153,7 +163,7 @@ public class QuestionForm extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lbQuestionPoints = new javax.swing.JLabel();
-        lbErrorPoints = new javax.swing.JLabel();
+        lbDefeatPoints = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lbPulos = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -347,8 +357,8 @@ public class QuestionForm extends javax.swing.JFrame {
         lbQuestionPoints.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbQuestionPoints.setText("0");
 
-        lbErrorPoints.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lbErrorPoints.setText("0");
+        lbDefeatPoints.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lbDefeatPoints.setText("0");
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setText("Errar:");
@@ -385,7 +395,7 @@ public class QuestionForm extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbErrorPoints))
+                        .addComponent(lbDefeatPoints))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -410,7 +420,7 @@ public class QuestionForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lbErrorPoints))
+                    .addComponent(lbDefeatPoints))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -550,7 +560,7 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbCurrentQuestion;
-    private javax.swing.JLabel lbErrorPoints;
+    private javax.swing.JLabel lbDefeatPoints;
     private javax.swing.JLabel lbPoints;
     private javax.swing.JLabel lbPoints1;
     private javax.swing.JLabel lbPulos;
