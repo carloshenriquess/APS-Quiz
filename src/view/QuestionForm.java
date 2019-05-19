@@ -90,7 +90,7 @@ public class QuestionForm extends javax.swing.JFrame {
             points += question.getPoints();
             toNextQuestion();
         } else {
-            DefeatForm defeatForm = new DefeatForm(points, pulos, tips);
+            DefeatForm defeatForm = new DefeatForm((int) (points / 2), pulos, tips);
             setVisible(false);
             defeatForm.setVisible(true);
         }
@@ -108,6 +108,11 @@ public class QuestionForm extends javax.swing.JFrame {
     private void onClickPular() {
         pulos--;
         toNextQuestion();
+    }
+    private void onStop() {
+        StopForm stopForm = new StopForm(points, pulos, tips);
+        setVisible(false);
+        stopForm.setVisible(true);
     }
     private void onSelectRadio(javax.swing.JRadioButton radio) {
         resetRadios();
@@ -154,6 +159,8 @@ public class QuestionForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lbTips = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        lbStopPoints = new javax.swing.JLabel();
 
         tipDialog.setTitle("Dica");
         tipDialog.setMinimumSize(new java.awt.Dimension(415, 200));
@@ -193,6 +200,7 @@ public class QuestionForm extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Quiz - FF");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(105, 105, 105));
@@ -357,6 +365,12 @@ public class QuestionForm extends javax.swing.JFrame {
         lbTips.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbTips.setText("0");
 
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel5.setText("Parar:");
+
+        lbStopPoints.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lbStopPoints.setText("0");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -379,7 +393,11 @@ public class QuestionForm extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbTips)))
+                        .addComponent(lbTips))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbStopPoints)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -393,7 +411,11 @@ public class QuestionForm extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lbErrorPoints))
-                .addGap(53, 53, 53)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lbStopPoints))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lbPulos))
@@ -401,7 +423,7 @@ public class QuestionForm extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(lbTips))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -499,7 +521,7 @@ public class QuestionForm extends javax.swing.JFrame {
     }//GEN-LAST:event_rdAlt4ActionPerformed
 
     private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
-        // TODO add your handling code here:
+        onStop();
     }//GEN-LAST:event_btnStopActionPerformed
 
     private void btnTipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipActionPerformed
@@ -510,42 +532,6 @@ public class QuestionForm extends javax.swing.JFrame {
         onClickPular();
     }//GEN-LAST:event_btnPularActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuestionForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuestionForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuestionForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuestionForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new QuestionForm().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnPular;
     private javax.swing.JButton btnReply;
@@ -555,6 +541,7 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -568,6 +555,7 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JLabel lbPoints1;
     private javax.swing.JLabel lbPulos;
     private javax.swing.JLabel lbQuestionPoints;
+    private javax.swing.JLabel lbStopPoints;
     private javax.swing.JLabel lbTip;
     private javax.swing.JLabel lbTips;
     private javax.swing.JRadioButton rdAlt1;
