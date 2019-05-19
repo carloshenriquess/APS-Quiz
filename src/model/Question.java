@@ -5,8 +5,9 @@ public class Question {
     private String[] alternatives;
     private Alternative rightAlternative;
     private int points;
+    private String tip;
     
-    public Question(String question, String[] alternatives, Alternative rightAlternative, int points) {
+    public Question(String question, String[] alternatives, Alternative rightAlternative, int points, String tip) {
         if (!(alternatives != null && alternatives.length == 4)) {
             throw new IllegalArgumentException("Apenas 4 alternativas permitidas");
         }
@@ -18,6 +19,7 @@ public class Question {
         this.alternatives = alternatives;
         this.rightAlternative = rightAlternative;
         this.points = points;
+        this.tip = tip;
     }
     
     public boolean reply(Alternative alternative) {
@@ -40,7 +42,11 @@ public class Question {
     }
 
     public String[] getAlternatives() {
-        return alternatives;
+        String[] displayAlternatives = new String[4];
+        for (int i = 0; i < 4; i++) {
+            displayAlternatives[i] = "<html><p style=\"width:250px;\">" + this.alternatives[i] + "</p></html>";
+        }
+        return displayAlternatives;
     }
 
     public Alternative getRightAlternative() {
@@ -51,4 +57,7 @@ public class Question {
         return points;
     }
     
+    public String getTip() {
+        return "<html><p style=\"width:300px;\">"+tip+"</p></html>";
+    }
 }

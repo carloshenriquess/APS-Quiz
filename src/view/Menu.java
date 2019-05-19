@@ -13,11 +13,11 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lbl_dinheiro1 = new javax.swing.JLabel();
-        lbl_dinheiro2 = new javax.swing.JLabel();
+        lbExit = new javax.swing.JLabel();
+        lbMin = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnPlay = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUIZ - Fauna e Flora");
@@ -30,23 +30,23 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Quiz - Flora e Fauna");
 
-        lbl_dinheiro1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        lbl_dinheiro1.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_dinheiro1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dinheiro1.setText("X");
-        lbl_dinheiro1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbExit.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbExit.setForeground(new java.awt.Color(255, 255, 255));
+        lbExit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbExit.setText("X");
+        lbExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_dinheiro1MouseClicked(evt);
+                lbExitMouseClicked(evt);
             }
         });
 
-        lbl_dinheiro2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        lbl_dinheiro2.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_dinheiro2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_dinheiro2.setText("-");
-        lbl_dinheiro2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lbMin.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        lbMin.setForeground(new java.awt.Color(255, 255, 255));
+        lbMin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbMin.setText("-");
+        lbMin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_dinheiro2MouseClicked(evt);
+                lbMinMouseClicked(evt);
             }
         });
 
@@ -58,9 +58,9 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbl_dinheiro2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbMin, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbl_dinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbExit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
@@ -69,26 +69,26 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(lbl_dinheiro1)
-                    .addComponent(lbl_dinheiro2))
+                    .addComponent(lbExit)
+                    .addComponent(lbMin))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(112, 128, 144));
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setText("Jogar!");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPlay.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnPlay.setText("Jogar!");
+        btnPlay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPlayActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setText("Sair");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnExit.setText("Sair");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
@@ -99,17 +99,17 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(118, 118, 118)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPlay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(109, 109, 109))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(48, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnPlay)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(btnExit)
                 .addGap(46, 46, 46))
         );
 
@@ -132,23 +132,23 @@ public class Menu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PerguntaForm p = new PerguntaForm();
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+        QuestionForm p = new QuestionForm();
         this.setVisible(false);
         p.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnPlayActionPerformed
 
-    private void lbl_dinheiro1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_dinheiro1MouseClicked
+    private void lbExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExitMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_lbl_dinheiro1MouseClicked
+    }//GEN-LAST:event_lbExitMouseClicked
 
-    private void lbl_dinheiro2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_dinheiro2MouseClicked
+    private void lbMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMinMouseClicked
         this.setState(JFrame.ICONIFIED);
-    }//GEN-LAST:event_lbl_dinheiro2MouseClicked
+    }//GEN-LAST:event_lbMinMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -179,12 +179,12 @@ public class Menu extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnPlay;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lbl_dinheiro1;
-    private javax.swing.JLabel lbl_dinheiro2;
+    private javax.swing.JLabel lbExit;
+    private javax.swing.JLabel lbMin;
     // End of variables declaration//GEN-END:variables
 }
