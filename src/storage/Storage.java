@@ -3,8 +3,10 @@ package storage;
 import model.Question;
 
 public class Storage {
-    public static final int PULOS = 1;
-    public static final int TIPS = 2;
+    public static final int PULOS = 2;
+    public static final int ELIMINATIONS = 3;
+    public static final int TIPS = 3;
+    public static final int HELPS = 3;
     static final String[][] ALTERNATIVES = {
         {
             "a) conjunto de animais de uma área.",
