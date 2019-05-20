@@ -26,6 +26,24 @@ public class Question {
         return this.rightAlternative == alternative;
     }
     
+    private char alternativeNumberToChar(int num) {
+        if (num < 0 || num > 3) {
+            throw new IllegalArgumentException("Numero de alternativa deve estar entre 0 e 3");
+        }
+        switch(num) {
+            case 0:
+                return 'A';
+            case 1:
+                return 'B';
+            case 2:
+                return 'C';
+            case 3:
+                return 'D';
+            default:
+                return ' ';
+        }
+    }
+    
     public enum Alternative {
         A((byte)1), B((byte)2), C((byte)3), D((byte)4);
         private final byte value;
@@ -44,7 +62,10 @@ public class Question {
     public String[] getAlternatives() {
         String[] displayAlternatives = new String[4];
         for (int i = 0; i < 4; i++) {
-            displayAlternatives[i] = "<html><p style=\"width:250px;\">" + this.alternatives[i] + "</p></html>";
+            displayAlternatives[i] = 
+                    "<html><p style=\"width:250px;\">"+
+                        alternativeNumberToChar(i)+") " + alternatives[i] +
+                    "</p></html>";
         }
         return displayAlternatives;
     }

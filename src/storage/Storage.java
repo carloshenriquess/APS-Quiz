@@ -9,304 +9,304 @@ public class Storage {
     public static final int HELPS = 3;
     static final String[][] ALTERNATIVES = {
         {
-            "a) conjunto de animais de uma área.",
-            "b) conjunto de vertebrados de uma área.",
-            "c) conjunto de plantas de uma área.",
-            "d) conjunto de protozoários de uma área."
+            "conjunto de animais de uma área.",
+            "onjunto de vertebrados de uma área.",
+            "conjunto de plantas de uma área.",
+            "conjunto de protozoários de uma área."
         },
         {
-            "a) A flora é afetada por fatores como temperatura e regime de chuvas.",
-            "b) Quando observamos a flora do Brasil, percebemos que as mesmas espécies ocorrem em todo o território nacional.",
-            "c) A flora do Brasil apresenta uma grande quantidade de espécies endêmicas.",
-            "d) Algumas espécies da flora brasileira não são encontradas em nenhum lugar do mundo."
+            "A flora é afetada por fatores como temperatura e regime de chuvas.",
+            "Quando observamos a flora do Brasil, percebemos que as mesmas espécies ocorrem em todo o território nacional.",
+            "A flora do Brasil apresenta uma grande quantidade de espécies endêmicas.",
+            "Algumas espécies da flora brasileira não são encontradas em nenhum lugar do mundo."
         },
         {
-            "a) ao conjunto de animais aquáticos de uma região.",
-            "b) ao conjunto de obras que descrevem protozoários de uma região.",
-            "c) ao conjunto de micro-organismos encontrados em nosso corpo.",
-            "d) ao conjunto de espécies de animais endêmicas de uma área."
+            "ao conjunto de animais aquáticos de uma região.",
+            "ao conjunto de obras que descrevem protozoários de uma região.",
+            "ao conjunto de micro-organismos encontrados em nosso corpo.",
+            "ao conjunto de espécies de animais endêmicas de uma área."
         },
         {
-            "a) O termo “flora” é usado para nomear obras que descrevem plantas de uma área.",
-            "b) O termo “flora” é utilizado para indicar a diversidade vegetal de uma área.",
-            "c) O termo “flora” é usado para indicar o conjunto de micro-organismos em nosso corpo.",
-            "d) O termo “flora” é usado para indicar a diversidade de animais de uma área."
+            "O termo “flora” é usado para nomear obras que descrevem plantas de uma área.",
+            "O termo “flora” é utilizado para indicar a diversidade vegetal de uma área.",
+            "O termo “flora” é usado para indicar o conjunto de micro-organismos em nosso corpo.",
+            "O termo “flora” é usado para indicar a diversidade de animais de uma área."
         },
         {
-            "A. Mata Atlântica.",
-            "B. Pantanal.",
-            "C. Amazônia.",
-            "D. Pampas."
+            "Mata Atlântica.",
+            "Pantanal.",
+            "Amazônia.",
+            "Pampas."
         },
         {
-            "A. taxa reprodutiva líquida elevada e ausência de competidores fortes.",
-            "B. crescimento populacional exponencial e capacidade de dispersão alta.",
-            "C. natalidade elevada e alta resistência à invasão.",
-            "D. capacidade de suporte elevada e área ampla."
+            "taxa reprodutiva líquida elevada e ausência de competidores fortes.",
+            "crescimento populacional exponencial e capacidade de dispersão alta.",
+            "natalidade elevada e alta resistência à invasão.",
+            "capacidade de suporte elevada e área ampla."
         },
         {
-            "A. Amazônia, Cerrado e Manguezal.",
-            "B. Amazônia, Caatinga e Cerrado.",
-            "C. Amazônia, Cerrado e Restinga.",
-            "D. Caatinga, Cerrado e Manguezal."
+            "Amazônia, Cerrado e Manguezal.",
+            "Amazônia, Caatinga e Cerrado.",
+            "Amazônia, Cerrado e Restinga.",
+            "Caatinga, Cerrado e Manguezal."
         },
         {
-            "A. A caatinga é constituída por árvores baixas, arbustos com poucas folhas, cactáceas e bromeliáceas.",
-            "B. Os pampas, vegetação característica do estado do Paraná, são predominantemente formados por pinheiros do gênero Araucaria.",
-            "C. A floresta amazônica é uma região cuja vegetação é característica de ambientes costeiros, com predominância de cactáceas.",
-            "D. Formação arbórea aberta com vegetação herbácea abundante e presença de árvores geralmente pequenas com tronco retorcido e de casca grossa são características predominantes da caatinga."
+            "A caatinga é constituída por árvores baixas, arbustos com poucas folhas, cactáceas e bromeliáceas.",
+            "Os pampas, vegetação característica do estado do Paraná, são predominantemente formados por pinheiros do gênero Araucaria.",
+            "A floresta amazônica é uma região cuja vegetação é característica de ambientes costeiros, com predominância de cactáceas.",
+            "Formação arbórea aberta com vegetação herbácea abundante e presença de árvores geralmente pequenas com tronco retorcido e de casca grossa são características predominantes da caatinga."
         },
         {
-            "A. A Mata Atlântica é caracterizada por formação vegetal de porte baixo e baixa diversidade de espécies, podendo apresentar diversos estágios sucessivos e vários estratos, com presença de serapilheira, cipós, epífitas e trepadeiras.",
-            "B. O manguezal é uma faixa estreita paralela ao litoral, de vegetação exuberante e com grande diversidade de espécies arbóreas, como pau-brasil, guapuruvu e o cambuci.",
-            "C. A caatinga apresenta uma grande riqueza de ambientes, vegetação do tipo savana estépica, e espécies que não são encontradas em nenhum outro bioma, denominadas espécies endêmicas.",
-            "D. Na Bahia, as principais ameaças à biodiversidade do cerrado são os solos secos e de baixa fertilidade, com altos níveis de ferro e alumínio."
+            "A Mata Atlântica é caracterizada por formação vegetal de porte baixo e baixa diversidade de espécies, podendo apresentar diversos estágios sucessivos e vários estratos, com presença de serapilheira, cipós, epífitas e trepadeiras.",
+            "O manguezal é uma faixa estreita paralela ao litoral, de vegetação exuberante e com grande diversidade de espécies arbóreas, como pau-brasil, guapuruvu e o cambuci.",
+            "A caatinga apresenta uma grande riqueza de ambientes, vegetação do tipo savana estépica, e espécies que não são encontradas em nenhum outro bioma, denominadas espécies endêmicas.",
+            "Na Bahia, as principais ameaças à biodiversidade do cerrado são os solos secos e de baixa fertilidade, com altos níveis de ferro e alumínio."
         },
         {
-            "A. A Amazônia é o maior bioma do Brasil, em contrapartida apresenta uma diversidade biológica reduzida devido à crescente urbanização.",
-            "B. O Pantanal é um bioma representado como uma planície inundável e no Brasil está presente nos estados de Mato Grosso e Goiás.",
-            "C. O Pantanal é caracterizado por áreas inundáveis, sua vegetação é diversificada e pode variar nas áreas alagadas, as periodicamente alagadas e as que não são alagadas.",
-            "D. O Cerrado apresenta espécies de plantas lenhosas que desenvolveram estruturas adaptativas para a sobrevivência nas suas condições ambientais, tais como casca fina sem sulcos, caules retilíneos e raízes aéreas"
+            "A Amazônia é o maior bioma do Brasil, em contrapartida apresenta uma diversidade biológica reduzida devido à crescente urbanização.",
+            "O Pantanal é um bioma representado como uma planície inundável e no Brasil está presente nos estados de Mato Grosso e Goiás.",
+            "O Pantanal é caracterizado por áreas inundáveis, sua vegetação é diversificada e pode variar nas áreas alagadas, as periodicamente alagadas e as que não são alagadas.",
+            "O Cerrado apresenta espécies de plantas lenhosas que desenvolveram estruturas adaptativas para a sobrevivência nas suas condições ambientais, tais como casca fina sem sulcos, caules retilíneos e raízes aéreas"
         },
         {
-            "A. à profundidade do solo e à pouca quantidade de nutrientes nele existente.",
-            "B. às estações do ano bem definidas, sendo seca e chuvosa.",
-            "C. à estrutura das árvores que possuem folhas rígidas e troncos retorcidos.",
-            "D. às atividades humanas ligadas à agricultura e à pecuária."
+            "à profundidade do solo e à pouca quantidade de nutrientes nele existente.",
+            "às estações do ano bem definidas, sendo seca e chuvosa.",
+            "à estrutura das árvores que possuem folhas rígidas e troncos retorcidos.",
+            "às atividades humanas ligadas à agricultura e à pecuária."
         },
         {
-            "A. a jaguatirica (Leopardus Pardalis).",
-            "B. o jaú (Paulicea luetkeni).",
-            "C. a seriema (Cariama cristata).",
-            "D. o buriti (Mauritia flexuosa)."
+            "a jaguatirica (Leopardus Pardalis).",
+            "o jaú (Paulicea luetkeni).",
+            "a seriema (Cariama cristata).",
+            "o buriti (Mauritia flexuosa)."
         },
         {
-            "A. O solo do Cerrado é normalmente mais pobre que o circundante, no caso da Mata Atlântica e da Amazônia, e sua vegetação é, em geral, de pequeno porte, com galhos retorcidos, casca e folhas grossas, capazes de melhor resistir a incêndios recorrentes.",
-            "B. O Cerrado é constituído por várias características de vegetação, e pode ser classificado em subsistemas: de campo, de cerrado, de cerradão, de matas, de matas ciliares e de veredas em ambientes alagadiços.",
-            "C. Como o solo é mais rico em nutrientes, a Caatinga apresenta uma grande riqueza de ambientes e espécies onde a seca, a luminosidade e o calor resultam numa vegetação xerófita espinhosa e decidual.",
-            "D. A condição latifoliada da Amazônia se deve à grande facilidade de transpiração e captação de luz pelas folhas, além de solo mais rico em nutrientes do que os outros biomas brasileiros."
+            "O solo do Cerrado é normalmente mais pobre que o circundante, no caso da Mata Atlântica e da Amazônia, e sua vegetação é, em geral, de pequeno porte, com galhos retorcidos, casca e folhas grossas, capazes de melhor resistir a incêndios recorrentes.",
+            "O Cerrado é constituído por várias características de vegetação, e pode ser classificado em subsistemas: de campo, de cerrado, de cerradão, de matas, de matas ciliares e de veredas em ambientes alagadiços.",
+            "Como o solo é mais rico em nutrientes, a Caatinga apresenta uma grande riqueza de ambientes e espécies onde a seca, a luminosidade e o calor resultam numa vegetação xerófita espinhosa e decidual.",
+            "A condição latifoliada da Amazônia se deve à grande facilidade de transpiração e captação de luz pelas folhas, além de solo mais rico em nutrientes do que os outros biomas brasileiros."
         },
         {
-            "A. A vegetação é composta por plantas xerófitas que se adaptaram em um ambiente com poucas chuvas e baixa umidade. No bioma são comuns árvores baixas e arbustos, e a presença de espinhos em muitas espécies vegetais reduz a perda de água pela transpiração.",
-            "B. A Caatinga está localizada em uma região com clima semiárido com árvores que, em geral, não perdem as folhas na estação das secas (espécies caducifólias).",
-            "C. O bioma tem sido desmatado de forma acelerada, devido ao consumo de lenha nativa, explorada de forma ilegal e insustentável para fins domésticos e indústrias, ao sobrepastoreio e a conversão para pastagens e agricultura.",
-            "D. Um estudo realizado pelo IBAMA determinou os três principais ecótonos no Brasil: o Cerrado-Amazônia, o Caatinga-Amazônia e o Cerrado-Caatinga."
+            "A vegetação é composta por plantas xerófitas que se adaptaram em um ambiente com poucas chuvas e baixa umidade. No bioma são comuns árvores baixas e arbustos, e a presença de espinhos em muitas espécies vegetais reduz a perda de água pela transpiração.",
+            "A Caatinga está localizada em uma região com clima semiárido com árvores que, em geral, não perdem as folhas na estação das secas (espécies caducifólias).",
+            "O bioma tem sido desmatado de forma acelerada, devido ao consumo de lenha nativa, explorada de forma ilegal e insustentável para fins domésticos e indústrias, ao sobrepastoreio e a conversão para pastagens e agricultura.",
+            "Um estudo realizado pelo IBAMA determinou os três principais ecótonos no Brasil: o Cerrado-Amazônia, o Caatinga-Amazônia e o Cerrado-Caatinga."
         },
         {
-            "A. teoria amazônica e ecologia de populações.",
-            "B. teoria evolutiva e geografia de populações.",
-            "C. teoria dispersiva e ocupação ambiental.",
-            "D. teoria dos refúgios e biogeografia."
+            "teoria amazônica e ecologia de populações.",
+            "teoria evolutiva e geografia de populações.",
+            "teoria dispersiva e ocupação ambiental.",
+            "teoria dos refúgios e biogeografia."
         },
         {
-            "A. mata dos cocais.",
-            "B. veredas.",
-            "C. cerrado.",
-            "D. mata atlântica."
+            "mata dos cocais.",
+            "veredas.",
+            "cerrado.",
+            "mata atlântica."
         },
         {
-            "A. o pampa.",
-            "B. o pantanal.",
-            "C. a caatinga.",
-            "D. a floresta amazônica."
+            "o pampa.",
+            "o pantanal.",
+            "a caatinga.",
+            "a floresta amazônica."
         },
         {
-            "A. caracteriza-se, em termos de clima, por duas estações bem definidas, uma bastante seca e outra bastante chuvosa.",
-            "B. é uma floresta tropical fechada, cujo solo não muito rico possui apenas uma fina camada de nutrientes.",
-            "C. é também denominada de savana brasileira.",
-            "D. caracteriza-se por períodos de seca, sendo composta por campos cobertos predominantemente por gramíneas."
+            "caracteriza-se, em termos de clima, por duas estações bem definidas, uma bastante seca e outra bastante chuvosa.",
+            "é uma floresta tropical fechada, cujo solo não muito rico possui apenas uma fina camada de nutrientes.",
+            "é também denominada de savana brasileira.",
+            "caracteriza-se por períodos de seca, sendo composta por campos cobertos predominantemente por gramíneas."
         },
         {
-            "A. hábitat.",
-            "B. nicho ecológico.",
-            "C. biocenose.",
-            "D. ecossistema."
+            "hábitat.",
+            "nicho ecológico.",
+            "biocenose.",
+            "ecossistema."
         },
         {
-            "A. é o bioma que apresenta a maior preservação no estado, principalmente na região serrana.",
-            "B. junto é o bioma que apresenta a maior preservação no estado, principalmente na região serrana.",
-            "C. originalmente é o único bioma continental presente em toda a extensão territorial do estado.",
-            "D. junto com os biomas restinga, manguezais e dunas compõe a fitofisionomia do estado."
+            "é o bioma que apresenta a maior preservação no estado, principalmente na região serrana.",
+            "junto é o bioma que apresenta a maior preservação no estado, principalmente na região serrana.",
+            "originalmente é o único bioma continental presente em toda a extensão territorial do estado.",
+            "junto com os biomas restinga, manguezais e dunas compõe a fitofisionomia do estado."
         },
         {
-            "A. Vários grupos de insetos estão representados por espécies capazes de viver no mangue. Muitos insetos como borboletas, besouros e moscas têm suas larvas fitófagas, alimentando-se da fauna de mangue.",
-            "B. A maioria dos peixes de áreas costeiras, explorados comercialmente pela população humana, como sardinhas, tainhas, robalos e camarões, independem dos manguezais para sua sobrevivência, por serem marinhos.",
-            "C. O manguezal é um ecossistema integrante do estuário marinho, habitado em toda a sua extensão por animais endógenos, que variam de formas microscópicas até grandes peixes, aves, répteis e mamíferos.",
-            "D. Muitas espécies de aves se alimentam de peixes e crustáceos no mangue, e, em uma íntima relação com o ambiente, seus dejetos servem de adubo, o que torna esse ecossistema ainda mais rico e produtivo."
+            "Vários grupos de insetos estão representados por espécies capazes de viver no mangue. Muitos insetos como borboletas, besouros e moscas têm suas larvas fitófagas, alimentando-se da fauna de mangue.",
+            "A maioria dos peixes de áreas costeiras, explorados comercialmente pela população humana, como sardinhas, tainhas, robalos e camarões, independem dos manguezais para sua sobrevivência, por serem marinhos.",
+            "O manguezal é um ecossistema integrante do estuário marinho, habitado em toda a sua extensão por animais endógenos, que variam de formas microscópicas até grandes peixes, aves, répteis e mamíferos.",
+            "Muitas espécies de aves se alimentam de peixes e crustáceos no mangue, e, em uma íntima relação com o ambiente, seus dejetos servem de adubo, o que torna esse ecossistema ainda mais rico e produtivo."
         },
         {
-            "A. Muitos dos materiais tóxicos que os seres humanos acrescentam nos ecossistemas, como herbicidas e pesticidas, são derivados do benzeno, que apresenta potencial elevado de degradabilidade e que, por ser volátil, provoca problemas de toxicidade.",
-            "B. O mundo anaeróbio representa o mundo primitivo — acreditase que as primeiras formas de vida eram eucariontes — uma vez que o mundo anaeróbio foi posteriormente substituído, expandindo a biodiversidade de organismos decompositores.",
-            "C. Os compostos inorgânicos utilizados nos processos de decomposição microbiana servem de escoadouros da energia fixada posteriormente na fotossíntese, definindo o máximo de eficiência em processos de decomposição conjugada.",
-            "D. Os produtos mais resistentes da decomposição acabam como substâncias húmicas — componente universal dos ecossistemas —, que são condensações de compostos aromáticos combinados com os produtos da decomposição de proteínas e polissacarídeos."
+            "Muitos dos materiais tóxicos que os seres humanos acrescentam nos ecossistemas, como herbicidas e pesticidas, são derivados do benzeno, que apresenta potencial elevado de degradabilidade e que, por ser volátil, provoca problemas de toxicidade.",
+            "O mundo anaeróbio representa o mundo primitivo — acreditase que as primeiras formas de vida eram eucariontes — uma vez que o mundo anaeróbio foi posteriormente substituído, expandindo a biodiversidade de organismos decompositores.",
+            "Os compostos inorgânicos utilizados nos processos de decomposição microbiana servem de escoadouros da energia fixada posteriormente na fotossíntese, definindo o máximo de eficiência em processos de decomposição conjugada.",
+            "Os produtos mais resistentes da decomposição acabam como substâncias húmicas — componente universal dos ecossistemas —, que são condensações de compostos aromáticos combinados com os produtos da decomposição de proteínas e polissacarídeos."
         },
         {
-            "A. É o único bioma exclusivamente brasileiro. Seu nome é originário do tupi-guarani e sua flora se constitui de espécies xerófitas totalmente adaptadas ao clima seco, com predominâncias de cactáceas e bromeliáceas.",
-            "B. Vegetação arbustivo-herbácea densa que domina a paisagem das regiões semiúmidas; encontra-se distribuído de forma bem heterogênea, compondo várias áreas de transição e sua maior concentração está na região centro-oeste do estado.",
-            "C. Pode ser vista como um mosaico diversificado de ecossistemas; apresenta estruturas e composições florísticas diferenciadas em função de diferenças de solo, relevo e clima existentes na sua área de ocorrência; suas árvores abrigam uma grande diversidade de epífitas.",
-            "D. É marcado por recifes calcários e arenitos, além de dunas que, quando perdem a cobertura vegetal que as fixa, movem-se com a ação do vento. Há ainda nessa área manguezais, restingas e matas. Se estende da foz do Rio Parnaíba até o Recôncavo."
+            "É o único bioma exclusivamente brasileiro. Seu nome é originário do tupi-guarani e sua flora se constitui de espécies xerófitas totalmente adaptadas ao clima seco, com predominâncias de cactáceas e bromeliáceas.",
+            "Vegetação arbustivo-herbácea densa que domina a paisagem das regiões semiúmidas; encontra-se distribuído de forma bem heterogênea, compondo várias áreas de transição e sua maior concentração está na região centro-oeste do estado.",
+            "Pode ser vista como um mosaico diversificado de ecossistemas; apresenta estruturas e composições florísticas diferenciadas em função de diferenças de solo, relevo e clima existentes na sua área de ocorrência; suas árvores abrigam uma grande diversidade de epífitas.",
+            "É marcado por recifes calcários e arenitos, além de dunas que, quando perdem a cobertura vegetal que as fixa, movem-se com a ação do vento. Há ainda nessa área manguezais, restingas e matas. Se estende da foz do Rio Parnaíba até o Recôncavo."
         },
         {
-            "A. I, II e III.",
-            "B. I, II e IV.",
-            "C. I, III e IV.",
-            "D. II, III e IV."
+            "I, II e III.",
+            "I, II e IV.",
+            "I, III e IV.",
+            "II, III e IV."
         },
         {
-            "A. equilibrar salários e preços, nos meios rural e urbano.",
-            "B. ser ainda insuficientes para a mudança do quadro socioeconômico da sub-região.",
-            "C. corrigir o desequilíbrio na criação de oportunidades de empregos urbanos e rurais.",
-            "D. preparar a mão de obra necessária para atender as novas exigências do mercado de trabalho."
+            "equilibrar salários e preços, nos meios rural e urbano.",
+            "ser ainda insuficientes para a mudança do quadro socioeconômico da sub-região.",
+            "corrigir o desequilíbrio na criação de oportunidades de empregos urbanos e rurais.",
+            "preparar a mão de obra necessária para atender as novas exigências do mercado de trabalho."
         },
         {
-            "A. A Bahia, maior estado e o mais populoso da região Nordeste, é o que detém a maior parcela da população na zona urbana.",
-            "B. Mesmo com as adversidades, quase metade da população do estado da Bahia ainda se encontra no semiárido.",
-            "C. Depois da Bahia, os estados mais urbanizados da região Nordeste são Paraíba, Rio Grande do Norte e Ceará.",
-            "D. O Brasil é um país essencialmente urbano, mas, na região Nordeste, alguns estados ainda concentram a maior parte da sua população no meio rural."
+            "A Bahia, maior estado e o mais populoso da região Nordeste, é o que detém a maior parcela da população na zona urbana.",
+            "Mesmo com as adversidades, quase metade da população do estado da Bahia ainda se encontra no semiárido.",
+            "Depois da Bahia, os estados mais urbanizados da região Nordeste são Paraíba, Rio Grande do Norte e Ceará.",
+            "O Brasil é um país essencialmente urbano, mas, na região Nordeste, alguns estados ainda concentram a maior parte da sua população no meio rural."
         },
         {
-            "A. o Cerrado.",
-            "B. a Caatinga.",
-            "C. a Amazônia.",
-            "D. o Pantanal."
+            "o Cerrado.",
+            "a Caatinga.",
+            "a Amazônia.",
+            "o Pantanal."
         },
         {
-            "A. Amazônia e Cerrado.",
-            "B. Cerrado e Pantanal.",
-            "C. Mata Atlântica e Amazônia.",
-            "D. Cerrado e Mata Atlântica."
+            "Amazônia e Cerrado.",
+            "Cerrado e Pantanal.",
+            "Mata Atlântica e Amazônia.",
+            "Cerrado e Mata Atlântica."
         },
         {
-            "A. Mata Atlântica é o nome dado a floresta presente na região litorânea dos estados da região Sul e Sudeste e tem como símbolo principal o jacaré de papo amarelo.",
-            "B. Na região litorânea do estado de São Paulo encontram-se fragmentos da Mata Atlântica original nos quais podemos encontrar grande diversidade de plantas e animais.",
-            "C. A Floresta Amazônica é a maior floresta do mundo e está toda situada em território brasileiro; nela encontra-se o paubrasil, árvore que deu origem ao nome de nosso país.",
-            "D. O Pantanal está localizado na Região Sudeste e apresenta como principal característica períodos de seca alternados com períodos de cheias."
+            "Mata Atlântica é o nome dado a floresta presente na região litorânea dos estados da região Sul e Sudeste e tem como símbolo principal o jacaré de papo amarelo.",
+            "Na região litorânea do estado de São Paulo encontram-se fragmentos da Mata Atlântica original nos quais podemos encontrar grande diversidade de plantas e animais.",
+            "A Floresta Amazônica é a maior floresta do mundo e está toda situada em território brasileiro; nela encontra-se o paubrasil, árvore que deu origem ao nome de nosso país.",
+            "O Pantanal está localizado na Região Sudeste e apresenta como principal característica períodos de seca alternados com períodos de cheias."
         },
         {
-            "A. É o ecossistema com a mais alta biodiversidade e o de maior extensão territorial.",
-            "B. Pode ser considerado uma savana por apresentar vegetação xerófita.",
-            "C. Apresenta período seco bem distinto e com alta biodiversidade.",
-            "D. Tem solo fértil com chuvas bem distribuídas ao longo do ano."
+            "É o ecossistema com a mais alta biodiversidade e o de maior extensão territorial.",
+            "Pode ser considerado uma savana por apresentar vegetação xerófita.",
+            "Apresenta período seco bem distinto e com alta biodiversidade.",
+            "Tem solo fértil com chuvas bem distribuídas ao longo do ano."
         },
         {
-            "A. diminuição de conflitos intra-específicos.",
-            "B. um gradiente de pressões seletivas.",
-            "C. um gradiente de taxas de mutação.",
-            "D. aumento da riqueza de espécies."
+            "diminuição de conflitos intra-específicos.",
+            "um gradiente de pressões seletivas.",
+            "um gradiente de taxas de mutação.",
+            "aumento da riqueza de espécies."
         },
         {
-            "A. são importantes para a proteção dos solos contra a erosão.",
-            "B. são áreas insalubres e sem utilidade, a não ser para a cultura de arroz.",
-            "C. a sua drenagem nunca foi permitida, o que gerou problemas ambientais.",
-            "D. o excesso de vegetação e de algas causa o acúmulo de substâncias tóxicas na água."
+            "são importantes para a proteção dos solos contra a erosão.",
+            "são áreas insalubres e sem utilidade, a não ser para a cultura de arroz.",
+            "a sua drenagem nunca foi permitida, o que gerou problemas ambientais.",
+            "o excesso de vegetação e de algas causa o acúmulo de substâncias tóxicas na água."
         },
         {
-            "A. Equatorial Continental (mEc ).",
-            "B. Equatorial Atlântica (mEa).",
-            "C. Tropical Continental (mTc).",
-            "D. Tropical Atlântica (mTa)."
+            "Equatorial Continental (mEc ).",
+            "Equatorial Atlântica (mEa).",
+            "Tropical Continental (mTc).",
+            "Tropical Atlântica (mTa)."
         },
         {
-            "A. A jararaca, uma lepidóptera, é considerada um animal venenoso por produzir veneno e um aparato inoculador.",
-            "B. O código internacional de classificação zoológica foi criado para mostrar o parentesco filogenético entre as diferentes espécies animais.",
-            "C. A jararaca, assim como outras diversas serpentes, faz parte da lista de espécies da fauna ameaçadas de extinção em Goiás.",
-            "D. A vegetação predominante no estado de Goiás é o Cerrado, mas há também pequenas faixas de Mata Atlântica."
+            "A jararaca, uma lepidóptera, é considerada um animal venenoso por produzir veneno e um aparato inoculador.",
+            "O código internacional de classificação zoológica foi criado para mostrar o parentesco filogenético entre as diferentes espécies animais.",
+            "A jararaca, assim como outras diversas serpentes, faz parte da lista de espécies da fauna ameaçadas de extinção em Goiás.",
+            "A vegetação predominante no estado de Goiás é o Cerrado, mas há também pequenas faixas de Mata Atlântica."
         },
         {
-            "A. O cerrado apresenta dois tipos principais de formação fitofisionômica: as savânicas e as campestres. A primeira inclui o cerradão e o cerrado em sentido restrito; e a segunda inclui o campo limpo, o campo sujo e as veredas.",
-            "B. O pantanal é considerado uma fitofisionomia do tipo campo sujo úmido.",
-            "C. O clima predominante do Cerrado é o tropical quente e seco, com uma estação seca e uma chuvosa, temperatura média anual entre 22° C e 27° C e precipitação inferior a 1000 mm anuais.",
-            "D. A duração da estação seca pode chegar a 5 meses, no entanto a água não é fator limitante, devido à sua relativa abundância no solo."
+            "O cerrado apresenta dois tipos principais de formação fitofisionômica: as savânicas e as campestres. A primeira inclui o cerradão e o cerrado em sentido restrito; e a segunda inclui o campo limpo, o campo sujo e as veredas.",
+            "O pantanal é considerado uma fitofisionomia do tipo campo sujo úmido.",
+            "O clima predominante do Cerrado é o tropical quente e seco, com uma estação seca e uma chuvosa, temperatura média anual entre 22° C e 27° C e precipitação inferior a 1000 mm anuais.",
+            "A duração da estação seca pode chegar a 5 meses, no entanto a água não é fator limitante, devido à sua relativa abundância no solo."
         },
         {
-            "A. vapor atmosférico - biomassa - rios - lagos - oceanos - gelo polar.",
-            "B. biomassa - vapor atmosférico - rios - lagos - oceanos - gelo polar.",
-            "C. gelo polar - oceanos - lagos - rios - vapor atmosférico - biomassa.",
-            "D. biomassa - vapor atmosférico - lagos - rios - oceanos - gelo polar."
+            "vapor atmosférico - biomassa - rios - lagos - oceanos - gelo polar.",
+            "biomassa - vapor atmosférico - rios - lagos - oceanos - gelo polar.",
+            "gelo polar - oceanos - lagos - rios - vapor atmosférico - biomassa.",
+            "biomassa - vapor atmosférico - lagos - rios - oceanos - gelo polar."
         },
         {
-            "A. Pantanal e a Mata Atlântica.",
-            "B. Cerrado e o Pampa.",
-            "C. Cerrado e a Amazônia.",
-            "D. Cerrado e a Mata Atlântica."
+            "Pantanal e a Mata Atlântica.",
+            "Cerrado e o Pampa.",
+            "Cerrado e a Amazônia.",
+            "Cerrado e a Mata Atlântica."
         },
         {
-            "A. Mata ombrófila – é uma mata de inundação; no entanto, é relativamente mais baixa e de menores complexidade e biomassa em comparação com as outras matas.",
-            "B. Mata de várzea – é uma mata de inundação onde há flutuação do nível de água de até 30 cm diários, devido ao fluxo das marés e à variação sazonal, ambos pouco conspícuos; cresce sobre solos de aluvião quaternários, ricos em nutrientes.",
-            "C. Mata de igapó  ecossistema de maior extensão, perenifólia, com dossel de até 50 metros, densa vegetação arbustiva; cresce sobre latossolos amarelos de origem terciária com textura argiloarenosa, ácidos, profundos e oligotróficos.",
-            "D. Capoeira ‒ apresenta características de cerrado, com estrato herbáceo contínuo, destacando-se as gramíneas, os arbustos e as árvores baixas de aspecto tortuoso e escleromórfico, crescendo sobre solos hidromórficos e argilosos de origem quaternária."
+            "Mata ombrófila – é uma mata de inundação; no entanto, é relativamente mais baixa e de menores complexidade e biomassa em comparação com as outras matas.",
+            "Mata de várzea – é uma mata de inundação onde há flutuação do nível de água de até 30 cm diários, devido ao fluxo das marés e à variação sazonal, ambos pouco conspícuos; cresce sobre solos de aluvião quaternários, ricos em nutrientes.",
+            "Mata de igapó  ecossistema de maior extensão, perenifólia, com dossel de até 50 metros, densa vegetação arbustiva; cresce sobre latossolos amarelos de origem terciária com textura argiloarenosa, ácidos, profundos e oligotróficos.",
+            "Capoeira ‒ apresenta características de cerrado, com estrato herbáceo contínuo, destacando-se as gramíneas, os arbustos e as árvores baixas de aspecto tortuoso e escleromórfico, crescendo sobre solos hidromórficos e argilosos de origem quaternária."
         },
         {
-            "A. ecossistema.",
-            "B. nicho.",
-            "C. habitat.",
-            "D. população."
+            "ecossistema.",
+            "nicho.",
+            "habitat.",
+            "população."
         },
         {
-            "A. Apenas os itens I e II estão certos.",
-            "B. Apenas os itens I e III estão certos.",
-            "C. Apenas os itens II e III estão certos.",
-            "D. Todos os itens estão certos"
+            "Apenas os itens I e II estão certos.",
+            "Apenas os itens I e III estão certos.",
+            "Apenas os itens II e III estão certos.",
+            "Todos os itens estão certos"
         },
         {
-            "A. Floresta Ombrófila Aberta de Terras Baixas, sendo a fisionomia composta apenas por Aberta de Cipó.",
-            "B. Floresta Ombrófila Aberta de Terras Baixas, sendo a fisionomia composta apenas por Aberta de Palmeira.",
-            "C. Floresta Ombrófila Aberta de Terras Baixas, sendo a fisionomia com duas fisionomias: Aberta de Cipó e Aberta de Palmeira.",
-            "D. Aluviais."
+            "Floresta Ombrófila Aberta de Terras Baixas, sendo a fisionomia composta apenas por Aberta de Cipó.",
+            "Floresta Ombrófila Aberta de Terras Baixas, sendo a fisionomia composta apenas por Aberta de Palmeira.",
+            "Floresta Ombrófila Aberta de Terras Baixas, sendo a fisionomia com duas fisionomias: Aberta de Cipó e Aberta de Palmeira.",
+            "Aluviais."
         },
         {
-            "A. as embaúbas.",
-            "B. as seringueiras.",
-            "C. os castanheiros.",
-            "D. as figueiras."
+            "as embaúbas.",
+            "as seringueiras.",
+            "os castanheiros.",
+            "as figueiras."
         },
         {
-            "A. dos mamíferos.",
-            "B. dos répteis.",
-            "C. dos anfíbios.",
-            "D. das aves."
+            "dos mamíferos.",
+            "dos répteis.",
+            "dos anfíbios.",
+            "das aves."
         },
         {
-            "a) Árvores de caules retilíneos, folhas perenes e raízes pouco profundas.",
-            "b) Grandes arbustos, com folhas largas e poucos galhos.",
-            "c) Espinhos e raízes aéreas para absorver a umidade do ar.",
-            "d) Queda das folhas na estiagem, espinhos e raízes profundas."
+            "Árvores de caules retilíneos, folhas perenes e raízes pouco profundas.",
+            "Grandes arbustos, com folhas largas e poucos galhos.",
+            "Espinhos e raízes aéreas para absorver a umidade do ar.",
+            "Queda das folhas na estiagem, espinhos e raízes profundas."
         },
         {
-            "A -  A nas áreas das chamadas Unidades de Conservação, não é permitido nenhum tipo de exploração dos recursos naturais, apenas o turismo.",
-            "B -  O objetivo principal das Unidades de Conservação no país é a proteção da fauna e da flora; no entanto, ao impedir a destruição desses elementos, também protege a geologia e o relevo de ações de degradação do ambiente.",
-            "C -  Há exemplos de comunidades ribeirinhas na Amazônia que sobrevivem dentro de uma Unidade de Conservação utilizando de forma equilibrada os recursos naturais e ainda recebendo visitantes para práticas de ecoturismo.",
-            "D -  Como em outros países, o Brasil conta com uma bem estruturada rede de proteção à fauna e à flora, com infraestrutura organizada para educação ambiental e ecoturismo, na qual todas as Unidades de Conservação federais – que são espaços fundamentais para a observação da natureza – estão incluídas."
+            "A nas áreas das chamadas Unidades de Conservação, não é permitido nenhum tipo de exploração dos recursos naturais, apenas o turismo.",
+            "O objetivo principal das Unidades de Conservação no país é a proteção da fauna e da flora; no entanto, ao impedir a destruição desses elementos, também protege a geologia e o relevo de ações de degradação do ambiente.",
+            "Há exemplos de comunidades ribeirinhas na Amazônia que sobrevivem dentro de uma Unidade de Conservação utilizando de forma equilibrada os recursos naturais e ainda recebendo visitantes para práticas de ecoturismo.",
+            "Como em outros países, o Brasil conta com uma bem estruturada rede de proteção à fauna e à flora, com infraestrutura organizada para educação ambiental e ecoturismo, na qual todas as Unidades de Conservação federais – que são espaços fundamentais para a observação da natureza – estão incluídas."
         },
         {
-            "A -  Mundial, porque as espécies levaram milhões de anos para se desenvolverem e muitas delas podem desaparecer do mundo em poucas décadas, se a poluição e o desmatamento indiscriminado tiverem continuidade.",
-            "B -  Regional, porque o desaparecimento de espécies de animais pode ser responsável por problemas alimentares e pelo aumento de pragas, pela ruptura da cadeia alimentar, em algumas regiões do mundo.",
-            "C -  Apenas para os Estados Unidos e países da Europa que já destruíram quase totalmente suas florestas, por terem desenvolvido seu setor industrial há muito tempo.",
-            "D -  Apenas para países e regiões que se organizaram politicamente em espaços áridos ou semiáridos, como a Namíbia e o Nordeste do Brasil, que dependem do pouco que resta de seus ecossistemas."
+            "Mundial, porque as espécies levaram milhões de anos para se desenvolverem e muitas delas podem desaparecer do mundo em poucas décadas, se a poluição e o desmatamento indiscriminado tiverem continuidade.",
+            "Regional, porque o desaparecimento de espécies de animais pode ser responsável por problemas alimentares e pelo aumento de pragas, pela ruptura da cadeia alimentar, em algumas regiões do mundo.",
+            "Apenas para os Estados Unidos e países da Europa que já destruíram quase totalmente suas florestas, por terem desenvolvido seu setor industrial há muito tempo.",
+            "Apenas para países e regiões que se organizaram politicamente em espaços áridos ou semiáridos, como a Namíbia e o Nordeste do Brasil, que dependem do pouco que resta de seus ecossistemas."
         },
         {
-            "A -  Praticar abuso ou crueldade, golpear, ferir, mutilar, envenenar, causar estresse e angústia, realizar experiência dolorosa ou cruel em espécime vivo.",
-            "B -  Vender, expor à venda, adquirir, guardar, transportar, e exportar espécimes vivos ou abatidos, ovos, filhotes, larvas, produtos e objetos oriundos da fauna silvestre brasileira sem permissão da autoridade competente.",
-            "C -  Manter em lugares anti-higiênicos, sem ventilação, luz e proporções necessárias ao tamanho e número de indivíduos, privar de satisfação das necessidades básicas e obrigar a trabalhos excessivos ou superiores às suas forças.",
-            "D -  Abandonar ou deixar de ministrar assistência, inclusive veterinária, utilizar em serviço animal cego ou debilitado, realizar ou promover lutas (rinhas), entre outros."
+            "Praticar abuso ou crueldade, golpear, ferir, mutilar, envenenar, causar estresse e angústia, realizar experiência dolorosa ou cruel em espécime vivo.",
+            "Vender, expor à venda, adquirir, guardar, transportar, e exportar espécimes vivos ou abatidos, ovos, filhotes, larvas, produtos e objetos oriundos da fauna silvestre brasileira sem permissão da autoridade competente.",
+            "Manter em lugares anti-higiênicos, sem ventilação, luz e proporções necessárias ao tamanho e número de indivíduos, privar de satisfação das necessidades básicas e obrigar a trabalhos excessivos ou superiores às suas forças.",
+            "Abandonar ou deixar de ministrar assistência, inclusive veterinária, utilizar em serviço animal cego ou debilitado, realizar ou promover lutas (rinhas), entre outros."
         },
         {
-            "A -  Tropófila e clima tropical.",
-            "B -  Xerófila e clima semiárido.",
-            "C -  Hidrófila e clima equatorial.",
-            "D -  Aciculifoliada e clima subtropical."
+            "Tropófila e clima tropical.",
+            "Xerófila e clima semiárido.",
+            "Hidrófila e clima equatorial.",
+            "Aciculifoliada e clima subtropical."
         },
         {
-            "A -  Floresta tropical.",
-            "B -  Caatinga.",
-            "C -  Formação do Pantanal.",
-            "D -  Cerrado."
+            "Floresta tropical.",
+            "Caatinga.",
+            "Formação do Pantanal.",
+            "Cerrado."
         },
         {
-            "A -  Se localizam nas mais altas latitudes do planeta.",
-            "B -  São constituídas de baixa a média biodiversidade.",
-            "C -  São os ecossistemas mais bem preservados da Terra.",
-            "D -  Têm uma composição de flora dominantemente latifoliada."
+            "Se localizam nas mais altas latitudes do planeta.",
+            "São constituídas de baixa a média biodiversidade.",
+            "São os ecossistemas mais bem preservados da Terra.",
+            "Têm uma composição de flora dominantemente latifoliada."
         }
     };
     public static final Question[] QUESTIONS = {
