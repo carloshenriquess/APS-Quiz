@@ -3,7 +3,7 @@ package storage;
 import model.Question;
 
 public class Storage {
-    public static final int PULOS = 2;
+    public static final int PULOS = 50;
     public static final int ELIMINATIONS = 3;
     public static final int TIPS = 3;
     public static final int HELPS = 3;

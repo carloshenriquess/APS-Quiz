@@ -14,6 +14,7 @@ public class WinForm extends javax.swing.JFrame {
      */
     public WinForm(int points, int pulos, int eliminations, int tips, int helps) {
         initComponents();
+        System.out.println("pulos -> " + pulos);
         int totalPulos = storage.Storage.PULOS;
         int totalEliminations = storage.Storage.ELIMINATIONS;
         int totalTips = storage.Storage.TIPS;
