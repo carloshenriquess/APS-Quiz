@@ -17,7 +17,7 @@ public class QuestionForm extends javax.swing.JFrame {
     private int helps;
     
     private boolean tipUsed = false;
-    private boolean elimUsed = false;
+    private boolean helpUsed = false;
 
     public QuestionForm() {
         initComponents();
@@ -39,6 +39,11 @@ public class QuestionForm extends javax.swing.JFrame {
         btnElim.setEnabled(eliminations > 0);
         btnTip.setEnabled(tips > 0);
         btnHelp.setEnabled(helps > 0);
+        
+        rdAlt1.setVisible(true);
+        rdAlt2.setVisible(true);
+        rdAlt3.setVisible(true);
+        rdAlt4.setVisible(true);
 
         btnReply.setEnabled(false);
         txtQuestion.setText(question.getQuestion());
@@ -53,9 +58,9 @@ public class QuestionForm extends javax.swing.JFrame {
         
         lbQuestionPoints.setText(String.valueOf(question.getPoints()));
         lbPulos.setText(String.valueOf(pulos));
+        lbElim.setText(String.valueOf(eliminations));
         lbTips.setText(String.valueOf(tips));
-        lbDefeatPoints.setText(String.valueOf(getDefeatPoints()));
-        lbStopPoints.setText(String.valueOf(points));
+        lbHelps.setText(String.valueOf(helps));
    }
     
     private void resetRadios() {
@@ -79,19 +84,11 @@ public class QuestionForm extends javax.swing.JFrame {
         return alternative;
     }
     
-    private int getDefeatPoints() {
-        if ((int) (points / 2) < 5000) {
-            return (int) (points / 2);
-        } else {
-            return 5000;
-        }
-    }
-    
     private void toNextQuestion() {
         currentQuestion++;
-        tipUsed = false;
-        elimUsed = false;
         if (Storage.QUESTIONS.length > currentQuestion) {
+            tipUsed = false;
+            helpUsed = false;
             question = Storage.QUESTIONS[currentQuestion];
             refreshForm();
         } else {
@@ -162,6 +159,98 @@ public class QuestionForm extends javax.swing.JFrame {
         }
     }
 
+    private void setHelpLabels(){
+        Random r = new Random();
+        int rightAltValue = r.nextInt(65) + 36;
+        int complementValue = 100 - rightAltValue;
+        int wrongAlternative1 = r.nextInt(complementValue) + 1;
+        complementValue -= wrongAlternative1;
+        int wrongAlternative2 = (complementValue == 0 ? 0 : r.nextInt(complementValue) + 1);
+        complementValue -= wrongAlternative2;
+        byte wrong1Position = (byte) (r.nextInt(3) + 1);
+        switch(question.getRightAlternative().getValue()) {
+            case 1:
+                lbPercentageA.setText(String.valueOf(rightAltValue));
+                switch(wrong1Position) {
+                    case 1:
+                        lbPercentageB.setText(String.valueOf(wrongAlternative1));
+                        lbPercentageC.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageD.setText(String.valueOf(complementValue));
+                        break;
+                    case 2:
+                        lbPercentageB.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageC.setText(String.valueOf(wrongAlternative1));
+                        lbPercentageD.setText(String.valueOf(complementValue));
+                        break;
+                    case 3:
+                        lbPercentageB.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageC.setText(String.valueOf(complementValue));
+                        lbPercentageD.setText(String.valueOf(wrongAlternative1));
+                        break;
+                }
+                break;
+            case 2:
+                lbPercentageB.setText(String.valueOf(rightAltValue));
+                switch(wrong1Position) {
+                    case 1:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative1));
+                        lbPercentageC.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageD.setText(String.valueOf(complementValue));
+                        break;
+                    case 2:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageC.setText(String.valueOf(wrongAlternative1));
+                        lbPercentageD.setText(String.valueOf(complementValue));
+                        break;
+                    case 3:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageC.setText(String.valueOf(complementValue));
+                        lbPercentageD.setText(String.valueOf(wrongAlternative1));
+                        break;
+                }
+                break;
+            case 3:
+                lbPercentageC.setText(String.valueOf(rightAltValue));
+                switch(wrong1Position) {
+                    case 1:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative1));
+                        lbPercentageB.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageD.setText(String.valueOf(complementValue));
+                        break;
+                    case 2:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageB.setText(String.valueOf(wrongAlternative1));
+                        lbPercentageD.setText(String.valueOf(complementValue));
+                        break;
+                    case 3:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageB.setText(String.valueOf(complementValue));
+                        lbPercentageD.setText(String.valueOf(wrongAlternative1));
+                        break;
+                }
+                break;
+            case 4:
+                lbPercentageD.setText(String.valueOf(rightAltValue));
+                switch(wrong1Position) {
+                    case 1:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative1));
+                        lbPercentageB.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageC.setText(String.valueOf(complementValue));
+                        break;
+                    case 2:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageB.setText(String.valueOf(wrongAlternative1));
+                        lbPercentageC.setText(String.valueOf(complementValue));
+                        break;
+                    case 3:
+                        lbPercentageA.setText(String.valueOf(wrongAlternative2));
+                        lbPercentageB.setText(String.valueOf(complementValue));
+                        lbPercentageC.setText(String.valueOf(wrongAlternative1));
+                        break;
+                }
+                break;
+        }
+    }
     // Events
     private void onReply() {
         Question.Alternative alternative = getSelectedAlternative();
@@ -173,44 +262,56 @@ public class QuestionForm extends javax.swing.JFrame {
             toFrame(defeatForm);
         }
     }
-    private void onClickTip() {
+    private void onTip() {
+        btnPular.setEnabled(false);
+        btnElim.setEnabled(false);
+        btnHelp.setEnabled(false);
         if (!tipUsed) {
             tipUsed = true;
             lbTips.setText(String.valueOf(--tips));
-            if (tips <= 0) {
-                btnTip.setEnabled(false);
-            }
         }
         lbTip.setText(question.getTip());
         tipDialog.setVisible(true);
     }
-    private void onClickPular() {
-        pulos--;
-        toNextQuestion();
-    }
 
-    private void onSelectRadio(javax.swing.JRadioButton radio) {
-        resetRadios();
-        radio.setSelected(true);
-        if (!btnReply.isEnabled()) {
-            btnReply.setEnabled(true);
-        }
+    private void onPular() {
+        pulos--;
+        points += 5;
+        toNextQuestion();
     }
     
     private void onEliminate() {
-        if (elimUsed) { return; }
-        elimUsed = !elimUsed;
+        btnPular.setEnabled(false);
         btnElim.setEnabled(false);
-        eliminations--;
-        lbElim.setText(String.valueOf(eliminations));
+        btnHelp.setEnabled(false);
+        btnTip.setEnabled(false);
+
+        lbElim.setText(String.valueOf(--eliminations));
         
-        Random r = new Random();
-        int randomValue = r.nextInt(100);
+        resetRadios();
+        btnReply.setEnabled(false);
+
+        int randomValue = new Random().nextInt(100);
+        System.out.println("random: " + randomValue);
         eliminateAlternatives(randomValue);
     }
     
     private void onHelp() {
-        
+        if (!helpUsed) {
+            helpUsed = true;
+            btnPular.setEnabled(false);
+            btnElim.setEnabled(false);
+            btnTip.setEnabled(false);
+            lbHelps.setText(String.valueOf(--helps));
+            setHelpLabels();
+        }
+        helpDialog.setVisible(true);
+    }
+    
+    private void onSelectRadio(javax.swing.JRadioButton radio) {
+        resetRadios();
+        radio.setSelected(true);
+        btnReply.setEnabled(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -222,7 +323,14 @@ public class QuestionForm extends javax.swing.JFrame {
         lbTip = new javax.swing.JLabel();
         helpDialog = new javax.swing.JDialog();
         lbHelp = new javax.swing.JPanel();
-        lbTip1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lbPercentageA = new javax.swing.JLabel();
+        lbPercentageB = new javax.swing.JLabel();
+        lbPercentageC = new javax.swing.JLabel();
+        lbPercentageD = new javax.swing.JLabel();
         feedbackDialog = new javax.swing.JDialog();
         pnFeedback = new javax.swing.JPanel();
         lbFeedback = new javax.swing.JLabel();
@@ -247,14 +355,10 @@ public class QuestionForm extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lbQuestionPoints = new javax.swing.JLabel();
-        lbDefeatPoints = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         lbPulos = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         lbTips = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        lbStopPoints = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lbElim = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -297,25 +401,84 @@ public class QuestionForm extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        lbTip1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        lbTip1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        lbTip1.setMinimumSize(new java.awt.Dimension(415, 0));
+        helpDialog.setResizable(false);
+        helpDialog.setSize(new java.awt.Dimension(435, 300));
+
+        lbHelp.setBackground(new java.awt.Color(112, 128, 144));
+
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("A)");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("B)");
+
+        jLabel10.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("C)");
+
+        jLabel11.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("D)");
+
+        lbPercentageA.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lbPercentageA.setForeground(new java.awt.Color(255, 255, 255));
+
+        lbPercentageB.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lbPercentageB.setForeground(new java.awt.Color(255, 255, 255));
+
+        lbPercentageC.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lbPercentageC.setForeground(new java.awt.Color(255, 255, 255));
+
+        lbPercentageD.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        lbPercentageD.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout lbHelpLayout = new javax.swing.GroupLayout(lbHelp);
         lbHelp.setLayout(lbHelpLayout);
         lbHelpLayout.setHorizontalGroup(
             lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lbHelpLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbTip1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(82, 82, 82)
+                .addGroup(lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lbHelpLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbPercentageA))
+                    .addGroup(lbHelpLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbPercentageB))
+                    .addGroup(lbHelpLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbPercentageC))
+                    .addGroup(lbHelpLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbPercentageD)))
+                .addContainerGap(328, Short.MAX_VALUE))
         );
         lbHelpLayout.setVerticalGroup(
             lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(lbHelpLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbTip1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(63, 63, 63)
+                .addGroup(lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lbPercentageA))
+                .addGap(18, 18, 18)
+                .addGroup(lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lbPercentageB))
+                .addGap(18, 18, 18)
+                .addGroup(lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(lbPercentageC))
+                .addGap(18, 18, 18)
+                .addGroup(lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(lbPercentageD))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout helpDialogLayout = new javax.swing.GroupLayout(helpDialog.getContentPane());
@@ -328,6 +491,8 @@ public class QuestionForm extends javax.swing.JFrame {
             helpDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lbHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        feedbackDialog.setSize(new java.awt.Dimension(400, 111));
 
         lbFeedback.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lbFeedback.setForeground(new java.awt.Color(255, 255, 255));
@@ -516,12 +681,6 @@ public class QuestionForm extends javax.swing.JFrame {
         lbQuestionPoints.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbQuestionPoints.setText("0");
 
-        lbDefeatPoints.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lbDefeatPoints.setText("0");
-
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel4.setText("Errar:");
-
         lbPulos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbPulos.setText("0");
 
@@ -533,12 +692,6 @@ public class QuestionForm extends javax.swing.JFrame {
 
         lbTips.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbTips.setText("0");
-
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel5.setText("Parar:");
-
-        lbStopPoints.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lbStopPoints.setText("0");
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setText("Eliminações:");
@@ -564,10 +717,6 @@ public class QuestionForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbQuestionPoints))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbDefeatPoints))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbPulos))
@@ -575,10 +724,6 @@ public class QuestionForm extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbTips))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbStopPoints))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -592,19 +737,11 @@ public class QuestionForm extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(24, 24, 24)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lbQuestionPoints))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(lbDefeatPoints))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(lbStopPoints))
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lbPulos))
@@ -620,7 +757,7 @@ public class QuestionForm extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(lbTips))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -678,14 +815,14 @@ public class QuestionForm extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnElim)
                             .addComponent(btnPular))
-                        .addGap(0, 5, Short.MAX_VALUE)))
+                        .addGap(0, 7, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReply)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnTip)
                         .addComponent(btnHelp)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -728,11 +865,11 @@ public class QuestionForm extends javax.swing.JFrame {
     }//GEN-LAST:event_rdAlt4ActionPerformed
 
     private void btnTipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipActionPerformed
-        onClickTip();
+        onTip();
     }//GEN-LAST:event_btnTipActionPerformed
 
     private void btnPularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPularActionPerformed
-        onClickPular();
+        onPular();
     }//GEN-LAST:event_btnPularActionPerformed
 
     private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
@@ -752,6 +889,8 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JDialog feedbackDialog;
     private javax.swing.JDialog helpDialog;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -766,18 +905,19 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbCurrentQuestion;
-    private javax.swing.JLabel lbDefeatPoints;
     private javax.swing.JLabel lbElim;
     private javax.swing.JLabel lbFeedback;
     private javax.swing.JPanel lbHelp;
     private javax.swing.JLabel lbHelps;
+    private javax.swing.JLabel lbPercentageA;
+    private javax.swing.JLabel lbPercentageB;
+    private javax.swing.JLabel lbPercentageC;
+    private javax.swing.JLabel lbPercentageD;
     private javax.swing.JLabel lbPoints;
     private javax.swing.JLabel lbPoints1;
     private javax.swing.JLabel lbPulos;
     private javax.swing.JLabel lbQuestionPoints;
-    private javax.swing.JLabel lbStopPoints;
     private javax.swing.JLabel lbTip;
-    private javax.swing.JLabel lbTip1;
     private javax.swing.JLabel lbTips;
     private javax.swing.JPanel pnFeedback;
     private javax.swing.JRadioButton rdAlt1;
