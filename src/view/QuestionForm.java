@@ -331,9 +331,6 @@ public class QuestionForm extends javax.swing.JFrame {
         lbPercentageB = new javax.swing.JLabel();
         lbPercentageC = new javax.swing.JLabel();
         lbPercentageD = new javax.swing.JLabel();
-        feedbackDialog = new javax.swing.JDialog();
-        pnFeedback = new javax.swing.JPanel();
-        lbFeedback = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbCurrentQuestion = new javax.swing.JLabel();
@@ -490,40 +487,6 @@ public class QuestionForm extends javax.swing.JFrame {
         helpDialogLayout.setVerticalGroup(
             helpDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lbHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-
-        feedbackDialog.setSize(new java.awt.Dimension(400, 111));
-
-        lbFeedback.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        lbFeedback.setForeground(new java.awt.Color(255, 255, 255));
-        lbFeedback.setText("Resposta correta!");
-
-        javax.swing.GroupLayout pnFeedbackLayout = new javax.swing.GroupLayout(pnFeedback);
-        pnFeedback.setLayout(pnFeedbackLayout);
-        pnFeedbackLayout.setHorizontalGroup(
-            pnFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnFeedbackLayout.createSequentialGroup()
-                .addContainerGap(125, Short.MAX_VALUE)
-                .addComponent(lbFeedback)
-                .addGap(121, 121, 121))
-        );
-        pnFeedbackLayout.setVerticalGroup(
-            pnFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnFeedbackLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(lbFeedback)
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout feedbackDialogLayout = new javax.swing.GroupLayout(feedbackDialog.getContentPane());
-        feedbackDialog.getContentPane().setLayout(feedbackDialogLayout);
-        feedbackDialogLayout.setHorizontalGroup(
-            feedbackDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        feedbackDialogLayout.setVerticalGroup(
-            feedbackDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -883,7 +846,6 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JButton btnPular;
     private javax.swing.JButton btnReply;
     private javax.swing.JButton btnTip;
-    private javax.swing.JDialog feedbackDialog;
     private javax.swing.JDialog helpDialog;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -903,7 +865,6 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbCurrentQuestion;
     private javax.swing.JLabel lbElim;
-    private javax.swing.JLabel lbFeedback;
     private javax.swing.JPanel lbHelp;
     private javax.swing.JLabel lbHelps;
     private javax.swing.JLabel lbPercentageA;
@@ -916,7 +877,6 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JLabel lbQuestionPoints;
     private javax.swing.JLabel lbTip;
     private javax.swing.JLabel lbTips;
-    private javax.swing.JPanel pnFeedback;
     private javax.swing.JRadioButton rdAlt1;
     private javax.swing.JRadioButton rdAlt2;
     private javax.swing.JRadioButton rdAlt3;
