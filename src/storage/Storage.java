@@ -1,5 +1,8 @@
 package storage;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 import model.Question;
 
 public class Storage {
@@ -309,359 +312,364 @@ public class Storage {
             "Têm uma composição de flora dominantemente latifoliada."
         }
     };
-    public static final Question[] QUESTIONS = {
-        new Question(
+    public static List<Question> getQuestions() {
+        List<Question> questions = new ArrayList<>();
+        questions.add(
+            new Question(
                 "Quando falamos da flora de uma região, estamos referindo-nos ao",
                 ALTERNATIVES[0],
                 Question.Alternative.C,
                 5,
                 "Flora é o conjunto de plantas de uma região."
-        ),
-        new Question(
+            )
+        );
+        questions.add(new Question(
                 "O termo “flora” é bastante conhecido de todos e refere-se à diversidade vegetal. Sobre o tema, marque a alternativa incorreta.",
                 ALTERNATIVES[1],
                 Question.Alternative.B,
                 10,
                 "Flora é o conjunto de plantas de uma região."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Quando falamos em flora, normalmente, estamos referindo-nos à diversidade de plantas de uma área. Entretanto, o termo “flora” pode ser usado em outros casos, como para se referir:",
                 ALTERNATIVES[2],
                 Question.Alternative.C,
                 15,
                 "O termo “flora” é usado também para indicar o conjunto de micro-organismos presente em nosso corpo. Um exemplo desse uso é “flora intestinal”."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O termo “flora” pode ser utilizado em diferentes casos. Analise as afirmações abaixo e marque aquela que não indica um uso correto para esse termo.",
                 ALTERNATIVES[3],
                 Question.Alternative.D,
                 10,
                 "O termo adequado para indicar a diversidade animal é “fauna”."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Segundo o IBGE, o Brasil possui seis grandes biomas, que abrigam uma das maiores biodiversidades do planeta. Entre esses biomas, inclui-se o bioma influenciado pelo clima subtropical e pela formação do relevo, de clima frio e seco, cuja vegetação é constituída principalmente por gramíneas. Tal bioma denomina-se",
                 ALTERNATIVES[4],
                 Question.Alternative.D,
                 5,
                 "Em sua maior parte, destaca-se o relevo de planícies, constituído de grandes áreas de pastagens que se desenvolvem grandes rebanhos."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Em uma comunidade biótica, a dominância de uma espécie exótica invasora resulta tanto de atributos de sua população como do ambiente, exemplificados, respectivamente, por",
                 ALTERNATIVES[5],
                 Question.Alternative.A,
                 15,
                 "Conjunto de todos os seres vivos de diferentes espécies que habitam numa mesma área e que podem estabelecer interacções entre si."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Os três biomas que ocorrem no Estado do Maranhão, e que estão representados no Parque Nacional dos Lençóis Maranhenses, são:",
                 ALTERNATIVES[6],
                 Question.Alternative.B,
                 15,
                 "Caracterizado por uma vegetação baixa, arbustos espaçados e gramíneas. É considerado o bioma mais preservado. É considerado o bioma mais preservado"
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Assinale a alternativa correta",
                 ALTERNATIVES[7],
                 Question.Alternative.A,
                 15,
                 "Semiárido, vegetação com poucas folhas e adaptadas para os períodos de secas, além de grande biodiversidade."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Assinale a alternativa correta",
                 ALTERNATIVES[8],
                 Question.Alternative.C,
                 15,
                 "Semiárido, vegetação com poucas folhas e adaptadas para os períodos de secas, além de grande biodiversidade."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Um bioma é um conjunto de tipos de vegetação que abrange grandes áreas contínuas, em escala regional, com flora e fauna similares, definidas pelas condições físicas predominantes nas regiões. Esses aspectos climáticos, geográficos e litológicos, por exemplo, fazem com que um bioma seja dotado de uma diversidade biológica singular, própria. No Brasil, os biomas existentes são: a Amazônia, o Cerrado, a Mata Atlântica, a Caatinga, o Pampa e o Pantanal. Sobre esse assunto, assinale a afirmativa correta.",
                 ALTERNATIVES[9],
                 Question.Alternative.C,
                 10,
                 "É um bioma constituído principalmente por uma savana estépica, alagada em sua maior parte, com 250 mil quilômetros quadrados de extensão, altitude média de 100 metros."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O Cerrado é um dos biomas brasileiros mais ameaçados diante da sua biodiversidade e está presente também no estado de Goiás. A ameaça deste bioma se deve",
                 ALTERNATIVES[10],
                 Question.Alternative.D,
                 5,
                 "Caracteriza-se por ser uma região de savana, estendendo-se por cerca de 200 milhões de quilômetros quadrados. Possui uma formação vegetal de grande biodiversidade e grande potencial aquífero, no entanto, é considerado atualmente o segundo bioma do Brasil mais ameaçado."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Um problema que atinge o Bioma Cerrado é a caça e a pesca, aumentando o número de espécies ameaçadas de extinção. De acordo com a lista disponibilizada no ano de 2014 pelo ICMBio-MMA sobre espécies em ameaça de extinção nesse bioma, tem-se:",
                 ALTERNATIVES[11],
                 Question.Alternative.A,
                 10,
                 "(Leopardus Pardalis)."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O bioma pode ser definido como um conjunto de tipos de vegetação característica que abrange grandes áreas contínuas, em escala regional, com flora e fauna similares, definida pelas condições físicas predominantes nas regiões. No Brasil, podemos definir seis amplos biomas (da maior extensão para a menor): a Amazônia, o Cerrado, a Mata Atlântica, a Caatinga, o Pampa e o Pantanal. Refletindo o fato de que os seres vivos de um bioma vivem de forma adaptada às condições da natureza (vegetação, chuva, umidade, calor, etc.) ali existentes, assinale a afirmação INCORRETA.",
                 ALTERNATIVES[12],
                 Question.Alternative.D,
                 10,
                 "Latifoliada é um tipo de vegetação que apresenta folhas largas e grandes, geralmente presente em regiões quentes para permitir a intensa transpiração."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "A Caatinga é um bioma que se concentra na região Nordeste do Brasil. Ocupando cerca de 10% do território nacional, ela cobre grandes faixas do Ceará, Piauí, Rio Grande do Norte, Paraíba, Pernambuco, Alagoas, Sergipe, Bahia e também um pedaço do Norte de Minas Gerais. Sobre o bioma Caatinga, marque a alternativa INCORRETA.",
                 ALTERNATIVES[13],
                 Question.Alternative.B,
                 10,
                 "É um bioma brasileiro que apresenta clima semiárido, vegetação com poucas folhas e adaptadas para os períodos de secas, além de grande biodiversidade."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Importantes pesquisadores trabalham em conjunto desenvolvendo e propondo explicações teóricas para os processos evolutivos das espécies e sua distribuição no ambiente. Aziz Ab’Saber e Paulo Vanzolini foram exemplos deste trabalho em conjunto que contribui para a compreensão do bioma amazônico. O nome da teoria por eles pesquisada e o ramo científico a qual pertence são, respectivamente:",
                 ALTERNATIVES[14],
                 Question.Alternative.D,
                 10,
                 "Haffer mostra que dados geomorfológicos da região norte da América do Sul, indicam que durante o período Quaternário, condições climáticas secas prevaleceram repetidas vezes na Amazônia."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O bioma caracterizado pela presença marcante de árvores tortuosas de pequeno e médio porte, com cascas duras e grossas e folhas cobertas de pelos e por estações climáticas bem definidas, com uma época chuvosa e outra bastante seca, denomina-se",
                 ALTERNATIVES[15],
                 Question.Alternative.C,
                 5,
                 "É uma área fito e biogeográfica (ou bioma, na acepção do IBGE) do Brasil, caracterizada especialmente pelo bioma savana, mas também por floresta estacional e campo"
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O único bioma exclusivamente brasileiro é",
                 ALTERNATIVES[16],
                 Question.Alternative.C,
                 10,
                 "O nome _____________ possui origem tupi-guarani e significa “floresta branca”. Essa denominação representa as características da vegetação desse ecossistema, cujas folhas caem no período da seca."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "A floresta amazônica",
                 ALTERNATIVES[17],
                 Question.Alternative.B,
                 15,
                 "Esta bacia abrange 7 milhões de quilômetros quadrados, dos quais 5 milhões e meio de quilômetros quadrados são cobertos pela floresta tropical."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O espaço físico, e seus fatores abióticos, onde se distribui determinada espécie é denominado",
                 ALTERNATIVES[18],
                 Question.Alternative.A,
                 5,
                 "É uma área ecológica ou ambiental que é habitada por uma determinada espécie de animal, planta ou outro organismo."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Os estudos sobre a ecologia do bioma Mata Atlântica, realizados pelos institutos de pesquisas, assim como as atitudes conservacionistas praticadas pelas diversas organizações não governamentais, no estado do Espírito Santo, apresentam particular importância, pois",
                 ALTERNATIVES[19],
                 Question.Alternative.C,
                 15,
                 "Originalmente, essa formação vegetal ocupava uma área de 1.300.000 km², em áreas de 17 estados, ocorrendo de forma contínua entre RN e RS."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O estuário na região litorânea do Brasil é um sistema costeiro caracterizado pela mistura de água salina e água doce dos rios que desembocam no mar. O manguezal se destaca como um hábitat favorável ao desenvolvimento e à reprodução de certos organismos. Acerca desse assunto, assinale a opção correta.",
                 ALTERNATIVES[20],
                 Question.Alternative.D,
                 15,
                 "Um estuário é um ambiente aquático de transição entre um rio e o mar."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Os processos de decomposição na estrutura trófica de ambientes naturais resultam em processos tanto bióticos quanto abióticos. A decomposição, portanto, ocorre através de transformações de energia dentro dos organismos, sendo uma função absolutamente vital dos ecossistemas. De acordo com o texto, assinale a opção correta.",
                 ALTERNATIVES[21],
                 Question.Alternative.D,
                 15,
                 "A estrutura trófica, baseia-se nas relações alimentares entre as várias espécies constituintes da comunidade."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Assinale a opção correspondente a característica do mais abrangente bioma da Bahia.",
                 ALTERNATIVES[22],
                 Question.Alternative.A,
                 15,
                 "Vegetação com poucas folhas e adaptadas para os períodos de secas, além de grande biodiversidade."
-        ),
-        new Question(
-                //OBS
+        ));
+        
+        questions.add(new Question(
                 "O Projeto do IBAMA, de conservação e manejo do bioma caatinga, visa conservar, ordenar o uso sustentável dos recursos naturais e contribuir para a divisão equitativa da riqueza. O referido projeto contempla a ação de: I identificar áreas para a criação de novas unidades de conservação. II introduzir atividades totalmente adversas de sua estrutura original. III definir e estabelecer corredores ecológicos. IV realizar estudos de valoração econômica da biodiversidade. Estão certos apenas os itens",
                 ALTERNATIVES[23],
                 Question.Alternative.C,
                 10,
                 "O objetivo de promover a conservação, a recuperação e o manejo sustentável de ecossistemas naturais, bem como a valorização e o reconhecimento de suas populações locais, buscando condições para reverter os impactos sócio-ambientais negativos no bioma Cerrado"
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "As políticas públicas que vêm sendo implementadas no semiárido nordestino se caracterizam por",
                 ALTERNATIVES[24],
                 Question.Alternative.B,
                 10,
                 "As medidas que envolvem a politica não resolveram os principais problemas da região."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "A ocorrência de mais uma seca no Nordeste brasileiro traz de volta, aos meios de comunicação, imagens bastante conhecidas, que dão testemunho da vulnerabilidade que ainda cerca as atividades econômicas do semiárido e de sua população, levando à migração, que sempre foi uma característica marcante na região Nordeste. Acerca desse tema, assinale a opção correta.",
                 ALTERNATIVES[25],
                 Question.Alternative.B,
                 10,
                 "Dentre os muitos aspectos apresentados pela Região Nordeste o que mais se destaca é a seca, causada pela escassez de chuvas, proporcionando pobreza e fome."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O bioma, exclusivamente brasileiro, conhecido como mata branca é:",
                 ALTERNATIVES[26],
                 Question.Alternative.B,
                 5,
                 "Vegetação com poucas folhas e adaptadas para os períodos de secas, além de grande biodiversidade."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Dentre os hotspots de biodiversidade no mundo, definidos pela Conservation International, dois ocorrem no Brasil. São eles:",
                 ALTERNATIVES[27],
                 Question.Alternative.A,
                 5,
                 "O termo hotspots é utilizado para designar lugares que apresentam uma grande riqueza natural e uma elevada biodiversidade."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O Brasil é considerado o país com maior diversidade biológica do planeta, já que aproximadamente 13% das espécies conhecidas estão no seu território. Esse grande número de espécies vive em ambientes muito diferentes, como é o caso da Mata Atlântica, do Cerrado, do Pantanal e da Floresta Amazônica. Sobre esses ambientes é correto afirmar:",
                 ALTERNATIVES[28],
                 Question.Alternative.B,
                 10,
                 "Litoral Norte: Vale do Paraíba. Litoral Sul: Vale do Ribeira. Litoral Central: Baixada Santista"
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "A região Norte Mineira é caracterizada por um bioma brasileiro que apresenta arbustos e árvores com troncos retorcidos, campos com grande presença de gramíneas e onde as atividades agropecuárias são importantes. Assinale a alternativa CORRETA que completa as características desse bioma.",
                 ALTERNATIVES[29],
                 Question.Alternative.C,
                 5,
                 "Caatinga"
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O território brasileiro apresenta zonas de transição entre os seus biomas. Alguns ambientalistas preocupam-se com a manutenção destas zonas de transição, por serem consideradas evolutivamente muito dinâmicas. Considera-se que ao longo de uma zona de transição ocorre",
                 ALTERNATIVES[30],
                 Question.Alternative.B,
                 10,
                 "Algumas zonas com características específicas, existentes entre os principais biomas brasileiros, foram identificadas e separadas para facilitar as tarefas e esforços de conservação. Uma delas é a transição entre o Cerrado e a Amazônia, com área de 414.007 km², envolvendo as florestas secas de Mato Grosso"
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Sobre os banhados, um ecossistema comum no Rio Grande do Sul, é correto afirmar que",
                 ALTERNATIVES[31],
                 Question.Alternative.A,
                 5,
                 "São áreas alagadas permanente ou temporariamente. Podem ser alimentados por água das chuvas, pelo escoamento de águas superficiais ou subterrâneas ou por rios e arroios que trasbordam quando chove muito."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "A massa de ar com característica quente e úmida originada na Amazônia ocidental, que exerce influência em quase todo o país durante o verão do hemisfério sul, sendo responsável pelas altas temperaturas e altos índices pluviométricos da região amazônica é denominada Massa",
                 ALTERNATIVES[32],
                 Question.Alternative.A,
                 5,
                 "É uma massa de ar de aspecto quente e úmido que é originada na região central do estado brasileiro do Amazonas."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Com base em ecologia, zoologia e botânica, assinale a alternativa correta.",
                 ALTERNATIVES[33],
                 Question.Alternative.D,
                 10,
                 "É dominada pelo Cerrado em seu território, com árvores e arbustos de galhos tortuosos, cascas grossas, folhas cobertas por pelos e raízes muito profundas."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O Cerrado é o segundo maior bioma da América do Sul e cobre 22% do território brasileiro. No entanto, devido à sua grande diversidade paisagística e fitofisionômica, ainda é mal compreendido. Com fundamento nesse bioma, assinale a alternativa correta.",
                 ALTERNATIVES[34],
                 Question.Alternative.D,
                 5,
                 "Cerrado é uma área fito- e biogeográfica do Brasil, caracterizada especialmente pelo bioma savana, mas também por floresta estacional e campo."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "A água na biosfera faz parte de um ciclo denominado ciclo hidrológico que consiste, basicamente, em um processo contínuo de transporte de massas d'água entre diferentes compartimentos. O tempo de residência de uma molécula de água nos diferentes compartimentos é variável. A ordem crescente para o tempo de residência de uma molécula de água entre os diferentes compartimentos é:",
                 ALTERNATIVES[35],
                 Question.Alternative.B,
                 10,
                 "Refere-se à troca contínua de água na hidrosfera, entre a atmosfera, a água do solo, águas superficiais, subterrâneas e das plantas."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Os dois biomas brasileiros que são considerados hotspot de biodiversidade pela Conservation Internacional são o",
                 ALTERNATIVES[36],
                 Question.Alternative.D,
                 5,
                 "O Brasil é campeão de megadiversidade, tendo maior número de espécies do que qualquer outra nação. Possui também o maior bloco de área verde do planeta – floresta amazônica."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Assinale a alternativa que apresenta ecossistema encontrado na Amazônia corretamente definido.",
                 ALTERNATIVES[37],
                 Question.Alternative.B,
                 5,
                 "É um tipo de floresta de planícies inundáveis invadidas por enchentes sazonais na bacia Amazônica, ao longo de rios de 'águas brancas'."
-        ),
-        new Question(
-                "Considere-se que coletas de briófitas tenham sido realizadas nos substratos: folha (folhas velhas e(ou) com maior diversidade de briófitas, de arbustos e árvores jovens de até 2 metros de altura), tronco vivo (até a altura de 2 metros), base ao nível do solo ou raiz de tronco vivo; tronco morto; solo; cupinzeiro e concreto. Nesse contexto, cada substrato estudado corresponde a",
+        ));
+        questions.add(new Question(
+                "Considere-se que coletas de briófitas tenham sido realizadas nos substratos: folha (folhas velhas e(ou) com maior diversidade de briófitas, de arbustos e árvores jovens de até 2 metros de altura)); tronco vivo (até a altura de 2 metros));, base ao nível do solo ou raiz de tronco vivo; tronco morto; solo; cupinzeiro e concreto. Nesse contexto, cada substrato estudado corresponde a",
                 ALTERNATIVES[38],
                 Question.Alternative.C,
                 5,
                 "Uma área ecológica ou ambiental que é habitada por uma determinada espécie de animal, planta ou outro organismo. O termo refere-se tipicamente à zona em que o organismo vive e onde pode encontrar alimento, abrigo, proteção e companheiros para reprodução."
-        ),
-        new Question(
-                //OBS
+        ));
+        
+        questions.add(new Question(
                 "A queda das folhas na estação seca e a presença de raízes bem desenvolvidas são duas adaptações importantes à vida das plantas na caatinga. A respeito das características das plantas da caatinga, julgue os itens a seguir: I A perda das folhas na estação seca é uma adaptação das plantas que reduz a perda de água por transpiração. II As plantas da caatinga são de grande porte. III Raízes bem desenvolvidas aumentam a capacidade das plantas da caatinga de obter água do solo. Assinale a opção correta.",
                 ALTERNATIVES[39],
                 Question.Alternative.B,
                 5,
                 "A vegetação da Caatinga é considerada por muitos como semelhante a de um deserto, pois o clima seco e a vegetação rasteira impossibilita a plantação de diversas espécies vegetais."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O Parque Nacional da Serra do Divisor no Acre, apresenta a maior parte da área coberta por:",
                 ALTERNATIVES[40],
                 Question.Alternative.C,
                 5,
                 "Tem como característica ambientes com climas mais secos, que chegam de 2 a 4 meses por ano, com temperaturas de 24 à 25°C. É encontrada também em algumas áreas da Bahia, Espírito Santo, Alagoas, Pernambuco e Paraíba."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "A Estação Ecológica Rio Acre foi criada em 2 de junho de 1981. A vegetação é caracterizada como Floresta Ombrófila Aberta de Terras Baixas, existindo na área florestas abertas de palmeiras e bambus. Nas proximidades das margens do Rio Acre são encontradas plantas consideradas pioneiras e que se desenvolvem quase como uma floresta homogênea, dominando a paisagem em vários trechos. Essas plantas são:",
                 ALTERNATIVES[41],
                 Question.Alternative.A,
                 5,
                 "Encontradas na Mata Atlântica e em outros locais no país, as _________ são árvores de porte médio, com caule reto e ramificação apenas na porção superior."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "O uacari-vermelho (Cacajao calvus) é uma das espécies de destaque do Parque Nacional da Serra do Divisor. Esta espécie pertence ao grupo",
                 ALTERNATIVES[42],
                 Question.Alternative.A,
                 5,
                 "Constituem uma classe de animais vertebrados do domínio Eukaryota, do Reino Animalia e Filo Chordata, subdivididos em dois grupos: aquáticos e terrestres, que se caracterizam pela presença de glândulas mamárias."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "“Chegariam a uma terra desconhecida e civilizada, ficariam presos nela. E o sertão continuaria a mandar gente para lá. O sertão mandaria para cidade homens fortes, brutos, como Fabiano, Sinhá Vitória e os dois meninos”. G. Ramos Vidas Secas. A caatinga, adaptada às condições naturais sertanejas, é uma vegetação que apresenta:",
                 ALTERNATIVES[43],
                 Question.Alternative.D,
                 5,
                 "Apresenta clima semiárido, vegetação com poucas folhas e adaptadas para os períodos de secas, além de grande biodiversidade."
-        ),
-        new Question(
-                //obs
+        ));
+        
+        questions.add(new Question(
                 "As chamadas Unidades de Conservação são fundamentais para a proteção da fauna e da flora no Brasil e para o desenvolvimento sustentável do país. Unidade de Conservação: espaço territorial e seus recursos ambientais, incluindo as águas jurisdicionais, com características naturais relevantes, legalmente instituído pelo Poder Público, com objetivos de conservação e limites definidos, sob regime especial de administração, ao qual se aplicam garantias adequadas de proteção. (Lei Federal n. 9.985, de 18 de julho de 2000). Sobre a afirmação e a definição legal, é INCORRETO afirmar que:",
                 ALTERNATIVES[44],
                 Question.Alternative.D,
                 5,
                 "É usado para designar um grupo de organismos que viveu em uma determinada época geológica."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Preservar a biodiversidade constitui uma das condições básicas para manter os ambientes sadios no nosso planeta. Essa afirmação refere-se a uma preocupação:",
                 ALTERNATIVES[45],
                 Question.Alternative.A,
                 5,
                 "Ações humanas e suas consequências diretas podem causar uma notória falta de preservação da biodiversidade mundial."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "A biopirataria não é apenas o contrabando de diversas formas de vida da flora e fauna, mas principalmente, a apropriação e monopolização dos conhecimentos das populações tradicionais no que se refere ao uso dos recursos naturais. Esta prática envolve diversos tipos de crime, incluindo contra a fauna. Assinale o item abaixo que descreve o comércio ilegal de fauna.",
                 ALTERNATIVES[46],
                 Question.Alternative.B,
                 5,
                 "É uma das atividades ilícitas mais lucrativas do planeta perdendo apenas para o tráfico de drogas e de armas, movimentando mais de US$10 bilhões por ano, sendo somente no Brasil, cerca de US$1 a 1,5 bilhões por ano."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Ao destruir uma paisagem de árvores de troncos retorcidos, folhas e arbustos ásperos sobre os solos ácidos, não raro laterizados ou tomados pelas formas bizarras dos cupinzeiros, essa modernização lineariza e aparentemente não permite que se questione a pretensão modernista de que a forma deve seguir a função. O processo descrito ocorre em uma área biogeográfica com predomínio de vegetação:",
                 ALTERNATIVES[47],
                 Question.Alternative.A,
                 5,
                 "É uma vegetação adaptada à variações de umidade, segundo a estação, seca ou chuvosa. As plantas são de características caducifólias (plantas que perdem as folhas em estações umidas ou quentes)."
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "“De origem bastante discutida, essa formação é característica das áreas onde o clima apresenta duas estações bem marcadas: uma seca e outra chuvosa, como no Planalto Central. Ela apresenta 2 estratos nítidos: uma arbóreo-arbustivo, onde as espécies tortuosas têm os caules geralmente revestidos de casca espessa, e outro herbáceo, geralmente dispostos em tufos”. O texto refere-se à qual formação vegetal?",
                 ALTERNATIVES[48],
                 Question.Alternative.D,
                 5,
                 "É uma área fito e biogeográfica (ou bioma, na acepção do IBGE) do Brasil, caracterizada especialmente pelo bioma savana, mas também por floresta estacional e campo"
-        ),
-        new Question(
+        ));
+        questions.add(new Question(
                 "Em relação às florestas tropicais úmidas, é correto afirmar que:",
                 ALTERNATIVES[49],
                 Question.Alternative.D,
                 5,
                 "Perda de água de uma comunidade ou ecossistema para a atmosfera, causada pela evaporação a partir do solo e pela transpiração das plantas."
-        )
-    };
+        ));
+        Collections.shuffle(questions);
+        return questions;
+    }
 }

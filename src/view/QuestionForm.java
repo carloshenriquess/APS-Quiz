@@ -1,5 +1,6 @@
 package view;
 
+import java.util.List;
 import java.util.Random;
 import javax.swing.JFrame;
 import model.Question;
@@ -7,7 +8,7 @@ import storage.Storage;
 import util.Util;
 
 public class QuestionForm extends javax.swing.JFrame {
-
+    private final List<Question> QUESTIONS;
     private byte currentQuestion;
     private Question question;
     private int points;
@@ -21,12 +22,13 @@ public class QuestionForm extends javax.swing.JFrame {
 
     public QuestionForm() {
         initComponents();
+        QUESTIONS = Storage.getQuestions();
         txtQuestion.setWrapStyleWord(true);
         txtQuestion.setLineWrap(true);
         tipDialog.setLocationRelativeTo(null);
         helpDialog.setLocationRelativeTo(null);
         
-        question = Storage.QUESTIONS[currentQuestion];
+        question = QUESTIONS.get(currentQuestion);
         pulos = Storage.PULOS;
         eliminations = Storage.ELIMINATIONS;
         tips = Storage.TIPS;
@@ -86,10 +88,10 @@ public class QuestionForm extends javax.swing.JFrame {
     
     private void toNextQuestion() {
         currentQuestion++;
-        if (Storage.QUESTIONS.length > currentQuestion) {
+        if (QUESTIONS.size() > currentQuestion) {
             tipUsed = false;
             helpUsed = false;
-            question = Storage.QUESTIONS[currentQuestion];
+            question = QUESTIONS.get(currentQuestion);
             refreshForm();
         } else {
             WinForm winForm = new WinForm(points, pulos, eliminations, tips, helps);
@@ -292,7 +294,6 @@ public class QuestionForm extends javax.swing.JFrame {
         btnReply.setEnabled(false);
 
         int randomValue = new Random().nextInt(100);
-        System.out.println("random: " + randomValue);
         eliminateAlternatives(randomValue);
     }
     
