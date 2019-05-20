@@ -1,5 +1,6 @@
 package view;
 
+import java.util.Random;
 import javax.swing.JFrame;
 import model.Question;
 import storage.Storage;
@@ -11,29 +12,33 @@ public class QuestionForm extends javax.swing.JFrame {
     private Question question;
     private int points;
     private int pulos;
+    private int eliminations;
     private int tips;
+    private int helps;
     
     private boolean tipUsed = false;
+    private boolean elimUsed = false;
 
     public QuestionForm() {
         initComponents();
         txtQuestion.setWrapStyleWord(true);
         txtQuestion.setLineWrap(true);
         tipDialog.setLocationRelativeTo(null);
+        helpDialog.setLocationRelativeTo(null);
         
         question = Storage.QUESTIONS[currentQuestion];
         pulos = Storage.PULOS;
+        eliminations = Storage.ELIMINATIONS;
         tips = Storage.TIPS;
+        helps = Storage.HELPS;
         refreshForm();
     }
 
     private void refreshForm() {
-        if (pulos <= 0) {
-            btnPular.setEnabled(false);
-        }
-        if (tips <= 0) {
-            btnTip.setEnabled(false);
-        }
+        btnPular.setEnabled(pulos > 0);
+        btnElim.setEnabled(eliminations > 0);
+        btnTip.setEnabled(tips > 0);
+        btnHelp.setEnabled(helps > 0);
 
         btnReply.setEnabled(false);
         txtQuestion.setText(question.getQuestion());
@@ -43,7 +48,7 @@ public class QuestionForm extends javax.swing.JFrame {
         rdAlt3.setText(question.getAlternatives()[2]);
         rdAlt4.setText(question.getAlternatives()[3]);
         lbCurrentQuestion.setText(String.valueOf(currentQuestion + 1));
-        lbTip.setText(question.getTip());
+
         lbPoints.setText(String.valueOf(points));
         
         lbQuestionPoints.setText(String.valueOf(question.getPoints()));
@@ -85,17 +90,76 @@ public class QuestionForm extends javax.swing.JFrame {
     private void toNextQuestion() {
         currentQuestion++;
         tipUsed = false;
+        elimUsed = false;
         if (Storage.QUESTIONS.length > currentQuestion) {
             question = Storage.QUESTIONS[currentQuestion];
             refreshForm();
         } else {
-            WinForm winForm = new WinForm(points, pulos, tips);
+            WinForm winForm = new WinForm(points, pulos, eliminations, tips, helps);
             toFrame(winForm);
         }
     }
     
     private void toFrame(JFrame jFrame) {
         Util.toFrame(this, jFrame);
+    }
+    
+    private void eliminateAlternatives(int randomValue) {
+        if (randomValue < 0 || randomValue > 100) {
+            throw new IllegalArgumentException("[randomValue] deve estar entre 0 e 100");
+        }
+        
+        if (randomValue < 33) {
+            switch (question.getRightAlternative().getValue()) {
+                case 1:
+                case 2:
+                    rdAlt3.setVisible(false);
+                    rdAlt4.setVisible(false);
+                    break;
+                case 3:
+                    rdAlt2.setVisible(false);
+                    rdAlt4.setVisible(false);
+                    break;
+                case 4:
+                    rdAlt2.setVisible(false);
+                    rdAlt3.setVisible(false);
+                    break;
+            }
+        } else if (randomValue < 66) {
+            switch (question.getRightAlternative().getValue()) {
+                case 1:
+                    rdAlt2.setVisible(false);
+                    rdAlt4.setVisible(false);
+                    break;
+                case 2:
+                case 3:
+                    rdAlt1.setVisible(false);
+                    rdAlt4.setVisible(false);
+                    break;
+                case 4:
+                    rdAlt1.setVisible(false);
+                    rdAlt3.setVisible(false);
+                    break;
+            }
+        } else {
+            switch(question.getRightAlternative().getValue()) {
+                case 1:
+                    rdAlt2.setVisible(false);
+                    rdAlt3.setVisible(false);
+                    break;
+                case 2:
+                    rdAlt1.setVisible(false);
+                    rdAlt3.setVisible(false);
+                    break;
+                case 3:
+                case 4:
+                    rdAlt1.setVisible(false);
+                    rdAlt2.setVisible(false);
+                    rdAlt1.setVisible(false);
+                    rdAlt2.setVisible(false);
+                    break;
+            }
+        }
     }
 
     // Events
@@ -105,7 +169,7 @@ public class QuestionForm extends javax.swing.JFrame {
             points += question.getPoints();
             toNextQuestion();
         } else {
-            DefeatForm defeatForm = new DefeatForm((int) (points / 2), pulos, tips);
+            DefeatForm defeatForm = new DefeatForm(points, pulos, eliminations, tips, helps);
             toFrame(defeatForm);
         }
     }
@@ -117,16 +181,14 @@ public class QuestionForm extends javax.swing.JFrame {
                 btnTip.setEnabled(false);
             }
         }
+        lbTip.setText(question.getTip());
         tipDialog.setVisible(true);
     }
     private void onClickPular() {
         pulos--;
         toNextQuestion();
     }
-    private void onStop() {
-        StopForm stopForm = new StopForm((int) (points / 2), pulos, tips);
-        toFrame(stopForm);
-    }
+
     private void onSelectRadio(javax.swing.JRadioButton radio) {
         resetRadios();
         radio.setSelected(true);
@@ -134,11 +196,23 @@ public class QuestionForm extends javax.swing.JFrame {
             btnReply.setEnabled(true);
         }
     }
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+    
+    private void onEliminate() {
+        if (elimUsed) { return; }
+        elimUsed = !elimUsed;
+        btnElim.setEnabled(false);
+        eliminations--;
+        lbElim.setText(String.valueOf(eliminations));
+        
+        Random r = new Random();
+        int randomValue = r.nextInt(100);
+        eliminateAlternatives(randomValue);
+    }
+    
+    private void onHelp() {
+        
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -146,6 +220,12 @@ public class QuestionForm extends javax.swing.JFrame {
         tipDialog = new javax.swing.JDialog();
         jPanel4 = new javax.swing.JPanel();
         lbTip = new javax.swing.JLabel();
+        helpDialog = new javax.swing.JDialog();
+        lbHelp = new javax.swing.JPanel();
+        lbTip1 = new javax.swing.JLabel();
+        feedbackDialog = new javax.swing.JDialog();
+        pnFeedback = new javax.swing.JPanel();
+        lbFeedback = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         lbCurrentQuestion = new javax.swing.JLabel();
@@ -160,9 +240,10 @@ public class QuestionForm extends javax.swing.JFrame {
         btnReply = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtQuestion = new javax.swing.JTextArea();
-        btnStop = new javax.swing.JButton();
-        btnTip = new javax.swing.JButton();
         btnPular = new javax.swing.JButton();
+        btnElim = new javax.swing.JButton();
+        btnTip = new javax.swing.JButton();
+        btnHelp = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         lbQuestionPoints = new javax.swing.JLabel();
@@ -174,6 +255,10 @@ public class QuestionForm extends javax.swing.JFrame {
         lbTips = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lbStopPoints = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lbElim = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lbHelps = new javax.swing.JLabel();
 
         tipDialog.setTitle("Dica");
         tipDialog.setMinimumSize(new java.awt.Dimension(415, 200));
@@ -210,6 +295,70 @@ public class QuestionForm extends javax.swing.JFrame {
         tipDialogLayout.setVerticalGroup(
             tipDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        lbTip1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lbTip1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        lbTip1.setMinimumSize(new java.awt.Dimension(415, 0));
+
+        javax.swing.GroupLayout lbHelpLayout = new javax.swing.GroupLayout(lbHelp);
+        lbHelp.setLayout(lbHelpLayout);
+        lbHelpLayout.setHorizontalGroup(
+            lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lbHelpLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbTip1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        lbHelpLayout.setVerticalGroup(
+            lbHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(lbHelpLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbTip1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout helpDialogLayout = new javax.swing.GroupLayout(helpDialog.getContentPane());
+        helpDialog.getContentPane().setLayout(helpDialogLayout);
+        helpDialogLayout.setHorizontalGroup(
+            helpDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        helpDialogLayout.setVerticalGroup(
+            helpDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbHelp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        lbFeedback.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        lbFeedback.setForeground(new java.awt.Color(255, 255, 255));
+        lbFeedback.setText("Resposta correta!");
+
+        javax.swing.GroupLayout pnFeedbackLayout = new javax.swing.GroupLayout(pnFeedback);
+        pnFeedback.setLayout(pnFeedbackLayout);
+        pnFeedbackLayout.setHorizontalGroup(
+            pnFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnFeedbackLayout.createSequentialGroup()
+                .addContainerGap(125, Short.MAX_VALUE)
+                .addComponent(lbFeedback)
+                .addGap(121, 121, 121))
+        );
+        pnFeedbackLayout.setVerticalGroup(
+            pnFeedbackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnFeedbackLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(lbFeedback)
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout feedbackDialogLayout = new javax.swing.GroupLayout(feedbackDialog.getContentPane());
+        feedbackDialog.getContentPane().setLayout(feedbackDialogLayout);
+        feedbackDialogLayout.setHorizontalGroup(
+            feedbackDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnFeedback, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        feedbackDialogLayout.setVerticalGroup(
+            feedbackDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -331,10 +480,17 @@ public class QuestionForm extends javax.swing.JFrame {
         txtQuestion.setMaximumSize(new java.awt.Dimension(2147483647, 85));
         jScrollPane1.setViewportView(txtQuestion);
 
-        btnStop.setText("Parar");
-        btnStop.addActionListener(new java.awt.event.ActionListener() {
+        btnPular.setText("Pular");
+        btnPular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopActionPerformed(evt);
+                btnPularActionPerformed(evt);
+            }
+        });
+
+        btnElim.setText("Eliminação");
+        btnElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElimActionPerformed(evt);
             }
         });
 
@@ -345,10 +501,10 @@ public class QuestionForm extends javax.swing.JFrame {
             }
         });
 
-        btnPular.setText("Pular");
-        btnPular.addActionListener(new java.awt.event.ActionListener() {
+        btnHelp.setText("Ajuda");
+        btnHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPularActionPerformed(evt);
+                btnHelpActionPerformed(evt);
             }
         });
 
@@ -384,6 +540,18 @@ public class QuestionForm extends javax.swing.JFrame {
         lbStopPoints.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lbStopPoints.setText("0");
 
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel8.setText("Eliminações:");
+
+        lbElim.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lbElim.setText("0");
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel9.setText("Ajudas:");
+
+        lbHelps.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lbHelps.setText("0");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -410,8 +578,16 @@ public class QuestionForm extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbStopPoints)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lbStopPoints))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbElim))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbHelps)))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,9 +610,17 @@ public class QuestionForm extends javax.swing.JFrame {
                     .addComponent(lbPulos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(lbElim))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(lbHelps))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(lbTips))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -447,27 +631,31 @@ public class QuestionForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(rdAlt4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rdAlt3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnReply)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(rdAlt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(rdAlt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnPular)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnTip)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnStop))
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(rdAlt4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rdAlt3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rdAlt2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(rdAlt1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(6, 6, 6))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnReply)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnPular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnHelp, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnTip, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnElim, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(20, 20, 20))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(10, 10, 10))
+                        .addGap(0, 10, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -477,21 +665,27 @@ public class QuestionForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(rdAlt1, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                        .addComponent(rdAlt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(rdAlt2, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                        .addComponent(rdAlt2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(rdAlt3, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                        .addComponent(rdAlt3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(rdAlt4, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(rdAlt4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnElim)
+                            .addComponent(btnPular))
+                        .addGap(0, 5, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnReply)
-                    .addComponent(btnStop)
-                    .addComponent(btnTip)
-                    .addComponent(btnPular))
-                .addContainerGap())
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnTip)
+                        .addComponent(btnHelp)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -505,8 +699,8 @@ public class QuestionForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -533,10 +727,6 @@ public class QuestionForm extends javax.swing.JFrame {
         onSelectRadio(rdAlt4);
     }//GEN-LAST:event_rdAlt4ActionPerformed
 
-    private void btnStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopActionPerformed
-        onStop();
-    }//GEN-LAST:event_btnStopActionPerformed
-
     private void btnTipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTipActionPerformed
         onClickTip();
     }//GEN-LAST:event_btnTipActionPerformed
@@ -545,11 +735,22 @@ public class QuestionForm extends javax.swing.JFrame {
         onClickPular();
     }//GEN-LAST:event_btnPularActionPerformed
 
+    private void btnElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElimActionPerformed
+        onEliminate();
+    }//GEN-LAST:event_btnElimActionPerformed
+
+    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
+        onHelp();
+    }//GEN-LAST:event_btnHelpActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnElim;
+    private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnPular;
     private javax.swing.JButton btnReply;
-    private javax.swing.JButton btnStop;
     private javax.swing.JButton btnTip;
+    private javax.swing.JDialog feedbackDialog;
+    private javax.swing.JDialog helpDialog;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -557,6 +758,8 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -564,13 +767,19 @@ public class QuestionForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbCurrentQuestion;
     private javax.swing.JLabel lbDefeatPoints;
+    private javax.swing.JLabel lbElim;
+    private javax.swing.JLabel lbFeedback;
+    private javax.swing.JPanel lbHelp;
+    private javax.swing.JLabel lbHelps;
     private javax.swing.JLabel lbPoints;
     private javax.swing.JLabel lbPoints1;
     private javax.swing.JLabel lbPulos;
     private javax.swing.JLabel lbQuestionPoints;
     private javax.swing.JLabel lbStopPoints;
     private javax.swing.JLabel lbTip;
+    private javax.swing.JLabel lbTip1;
     private javax.swing.JLabel lbTips;
+    private javax.swing.JPanel pnFeedback;
     private javax.swing.JRadioButton rdAlt1;
     private javax.swing.JRadioButton rdAlt2;
     private javax.swing.JRadioButton rdAlt3;

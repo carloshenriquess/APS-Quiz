@@ -134,7 +134,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
         QuestionForm p = new QuestionForm();
-        this.setVisible(false);
+        setVisible(false);
         p.setVisible(true);
     }//GEN-LAST:event_btnPlayActionPerformed
 

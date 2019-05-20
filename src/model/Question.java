@@ -27,7 +27,7 @@ public class Question {
     }
     
     public enum Alternative {
-        A((byte)0), B((byte)1), C((byte)2), D((byte)3);
+        A((byte)1), B((byte)2), C((byte)3), D((byte)4);
         private final byte value;
         private Alternative(byte value) {
             this.value = value;
